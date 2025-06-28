@@ -1,0 +1,314 @@
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Product Images -->
+            <div class="lg:col-span-5">
+                <div class="sticky top-6">
+                    <!-- Main Image -->
+                    <div class="bg-white rounded-lg shadow-sm border p-4 mb-4">
+                        <img 
+                            id="mainImage" 
+                            src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            alt="Essence Mascara Lash Princess" 
+                            class="w-full h-96 object-contain rounded-lg"
+                        >
+                    </div>
+                    
+                    <!-- Thumbnail Images -->
+                    <div class="grid grid-cols-4 gap-2">
+                        <div class="bg-white rounded-lg shadow-sm border p-2 cursor-pointer hover:shadow-md transition-shadow">
+                            <img 
+                                src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                alt="View 1" 
+                                class="w-full h-16 object-contain rounded thumbnail-img"
+                                onclick="changeMainImage(this.src)"
+                            >
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm border p-2 cursor-pointer hover:shadow-md transition-shadow">
+                            <img 
+                                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                alt="View 2" 
+                                class="w-full h-16 object-contain rounded thumbnail-img"
+                                onclick="changeMainImage(this.src)"
+                            >
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm border p-2 cursor-pointer hover:shadow-md transition-shadow">
+                            <img 
+                                src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                alt="View 3" 
+                                class="w-full h-16 object-contain rounded thumbnail-img"
+                                onclick="changeMainImage(this.src)"
+                            >
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm border p-2 cursor-pointer hover:shadow-md transition-shadow">
+                            <img 
+                                src="https://images.unsplash.com/photo-1583847923194-3b6133e14c0a?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                alt="View 4" 
+                                class="w-full h-16 object-contain rounded thumbnail-img"
+                                onclick="changeMainImage(this.src)"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="lg:col-span-7">
+                <div class="bg-white rounded-lg shadow-sm border p-6">
+                    <!-- Product Title & Brand -->
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-1">Brand: <span class="text-amazon-blue font-medium">Essence</span></p>
+                        <h1 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2"><%=product.title%></h1>
+
+                      <p class="text-sm text-gray-500">SKU:<%=product.sku%></p>
+                    </div>
+
+                    <!-- Rating -->
+                    <div class="flex items-center mb-4">
+                       <div class="flex items-center gap-1 text-yellow-500">
+                          <% for(let i = 1; i <= 5; i++) { %>
+                            <% if(i <= Math.floor(product.rating)) { %>
+                              <i data-lucide="star" class="w-4 h-4"></i>
+                                <% } else { %>
+                                  <i data-lucide="star" class="w-4 h-4 opacity-30"></i>
+                                <% } %>
+                              <% } %>
+                            </div>
+                         <span class="text-sm text-gray-600">(<%=product.rating%> out of 5)</span>
+                        <span class="text-sm text-amazon-blue ml-2 hover:underline cursor-pointer"><%=product.reviews.length%> cutstomer reviews</span>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="mb-6">
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-3xl font-bold text-red-600">$<%=product.price%></span>
+                            <% 
+                              const discountAmount = (product.price * product.discountPercentage) / 100;
+                              const discountedPrice = product.price - discountAmount;
+                              const save = discountAmount - discountedPrice; 
+                            %>
+                            <span class="text-lg text-gray-500 line-through">$<%=discountedPrice.toFixed(2)%><span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-medium">10% OFF</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">Save $<%=save.toFixed(3)%></p>
+                    </div>
+
+                    <!-- Stock Status -->
+                    <div class="mb-6">
+                        <p class="text-green-600 font-medium flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            In Stock (<%=product.stock%> available)
+                        </p>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">About this item</h3>
+                        <p class="text-gray-700 leading-relaxed"> <%=product.description%></p>                    </div>
+
+                    <!-- Key Features -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-3">Key Features</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Volumizing and lengthening effects</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Long-lasting formula</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Cruelty-free</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Lightweight (4g)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Quantity and Add to Cart -->
+                    <div class="border-t pt-6">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <div class="flex items-center">
+                                <label class="text-sm font-medium text-gray-700 mr-3">Qty:</label>
+                                <select class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-amazon-orange focus:border-amazon-orange">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="flex gap-3 flex-1">
+                                <button class="flex-1 bg-amazon-orange text-white py-3 px-6 rounded-lg font-medium hover:bg-orange-600 transition-colors">
+                                    Add to Cart
+                                </button>
+                                <button class="flex-1 bg-orange-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-orange-600 transition-colors">
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Info -->
+                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                        <div class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"></path>
+                            </svg>
+                            Ships in 3-5 business days
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            1 week warranty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Specifications -->
+        <div class="mt-8 bg-white rounded-lg shadow-sm border">
+            <div class="p-6">
+                <h2 class="text-xl font-bold mb-4">Product Specifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-3">Product Details</h3>
+                        <dl class="space-y-2">
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Brand:</dt>
+                                <dd class="font-medium">Essence</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Category:</dt>
+                                <dd class="font-medium">Beauty</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Weight:</dt>
+                                <dd class="font-medium">4g</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Minimum Order:</dt>
+                                <dd class="font-medium">48 units</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-900 mb-3">Dimensions</h3>
+                        <dl class="space-y-2">
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Width:</dt>
+                                <dd class="font-medium">15.14 cm</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Height:</dt>
+                                <dd class="font-medium">13.08 cm</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Depth:</dt>
+                                <dd class="font-medium">22.99 cm</dd>
+                            </div>
+                            <div class="flex justify-between">
+                                <dt class="text-gray-600">Return Policy:</dt>
+                                <dd class="font-medium">No returns</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Reviews -->
+        <div class="mt-8 bg-white rounded-lg shadow-sm border">
+            <div class="p-6">
+                <h2 class="text-xl font-bold mb-4">Customer Reviews</h2>
+                
+                <!-- Review Summary -->
+                <div class="flex items-center mb-6 pb-6 border-b">
+                    <div class="flex items-center mr-8">
+                        <span class="text-4xl font-bold mr-2">2.6</span>
+                        <div>
+                            <div class="flex text-yellow-400 text-lg">★★☆☆☆</div>
+                            <p class="text-sm text-gray-600">out of 5</p>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p>3 customer reviews</p>
+                    </div>
+                </div>
+
+                <!-- Individual Reviews -->
+                <div class="space-y-6">
+                    <!-- Review 1 -->
+                    <div class="border-b pb-6">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="flex text-yellow-400 mr-2">★★★☆☆</div>
+                                    <span class="font-medium">Eleanor Collins</span>
+                                </div>
+                                <p class="text-sm text-gray-600">April 30, 2025</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">Would not recommend!</p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="border-b pb-6">
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="flex text-yellow-400 mr-2">★★★★☆</div>
+                                    <span class="font-medium">Lucas Gordon</span>
+                                </div>
+                                <p class="text-sm text-gray-600">April 30, 2025</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">Very satisfied!</p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div>
+                        <div class="flex items-start justify-between mb-2">
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="flex text-yellow-400 mr-2">★★★★★</div>
+                                    <span class="font-medium">Eleanor Collins</span>
+                                </div>
+                                <p class="text-sm text-gray-600">April 30, 2025</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">Highly impressed!</p>
+                    </div>
+                </div>
+
+                <!-- Write Review Button -->
+                <div class="mt-6 pt-6 border-t">
+                    <button class="bg-gray-100 text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors">
+                        Write a Review
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeMainImage(newSrc) {
+            document.getElementById('mainImage').src = newSrc;
+        }
+    </script>
