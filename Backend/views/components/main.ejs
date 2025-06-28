@@ -1,0 +1,25 @@
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <!-- Product Grid -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6"> 
+      <!-- Product Card -->
+
+    <%for(let item of product){ %>
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="<%=item.images[0]%>" alt="Wireless Headphones" class="w-full h-64 object-cover"/>
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-1"><%= item.title %></h21
+          <p class="text-sm text-gray-600 mb-2"> · <%=item.brand%></p>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-lg font-bold">$<%=item.price%></span>
+            <span class="text-sm line-through text-gray-400"><%= item.price + 1%></span>
+            <span class="text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded"><%=item.discountPercentage%> OFF</span>
+          </div>
+          <button class="mt-auto w-full bg-orange-600 text-white text-sm py-2 rounded hover:bg-orange-500 transition">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+     <%}%>
+    </div>
+  </main>

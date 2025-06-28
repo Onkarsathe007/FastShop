@@ -1,0 +1,179 @@
+        <!-- Main Navigation -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center mr-4 ml-0">
+                    <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-gray-900">
+                        <div class="w-10 ml-2 h-10 bg-gradient-to-br from-orange-600 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="shopping-bag" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span cla>FastShop</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    
+                    
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">New Arrivals</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Sale</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Brands</a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex flex-1 max-w-lg mx-8">
+                    <div class="relative w-full">
+                        <input 
+                            type="text" 
+                            placeholder="Search products..." 
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Icons -->
+                <div class="flex items-center space-x-4">
+                    <!-- User Account -->
+                    <div class="dropdown relative">
+                        <button class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors">
+                            <i data-lucide="user" class="w-6 h-6"></i>
+                            <span class="hidden lg:block">Account</span>
+                        </button>
+                        <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border hidden animate-fade-in">
+                            <div class="p-2">
+                                <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <i data-lucide="user-circle" class="w-4 h-4 text-gray-400"></i>
+                                    <span>My Profile</span>
+                                </a>
+                                <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <i data-lucide="package" class="w-4 h-4 text-gray-400"></i>
+                                    <span>My Orders</span>
+                                </a>
+                                <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                                    <i data-lucide="heart" class="w-4 h-4 text-gray-400"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                                <hr class="my-2">
+                                <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-red-600">
+                                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                                    <span>Sign Out</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist -->
+                    <a href="#" class="relative text-gray-700 hover:text-red-500 transition-colors">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </a>
+
+                    <!-- Shopping Cart -->
+                    <a href="#" class="relative text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                        <span class="cart-badge absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600 transition-colors">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t animate-slide-down">
+            <div class="px-4 py-4 space-y-4">
+                <!-- Mobile Search -->
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        placeholder="Search products..." 
+                        class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Links -->
+                <div class="space-y-2">
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="grid-3x3" class="w-5 h-5 text-gray-400"></i>
+                        <span>Shop All Categories</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-gray-400"></i>
+                        <span>New Arrivals</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="percent" class="w-5 h-5 text-gray-400"></i>
+                        <span>Sale</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="award" class="w-5 h-5 text-gray-400"></i>
+                        <span>Brands</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Account Section -->
+                <div class="border-t pt-4 space-y-2">
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="user-circle" class="w-5 h-5 text-gray-400"></i>
+                        <span>My Account</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="package" class="w-5 h-5 text-gray-400"></i>
+                        <span>Track Orders</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                        <i data-lucide="help-circle" class="w-5 h-5 text-gray-400"></i>
+                        <span>Help & Support</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+   <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add cart animation on hover
+            const cartIcon = document.querySelector('[data-lucide="shopping-cart"]').parentElement;
+            cartIcon.addEventListener('mouseenter', () => {
+                cartIcon.classList.add('scale-110');
+                cartIcon.classList.add('transition-transform');
+            });
+            cartIcon.addEventListener('mouseleave', () => {
+                cartIcon.classList.remove('scale-110');
+            });
+        });
+    </script>
+
