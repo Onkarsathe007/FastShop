@@ -1,4 +1,4 @@
-var products = [
+const products = [
   {
     "id": 1,
     "title": "Essence Mascara Lash Princess",
@@ -55,9 +55,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "https://images.pexels.com/photos/2587370/pexels-photo-2587370.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/2587370/pexels-photo-2587370.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 2,
@@ -115,9 +117,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+      "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 3,
@@ -175,9 +179,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+      "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 4,
@@ -235,9 +241,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 5,
@@ -295,9 +303,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+      "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 6,
@@ -355,12 +365,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=753&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/3.webp"
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 7,
@@ -418,11 +427,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/2.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/3.webp"
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 8,
@@ -480,11 +489,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/2.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/3.webp"
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 9,
@@ -542,11 +551,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/2.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp"
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 10,
@@ -604,11 +613,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/2.webp",
-      "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/3.webp"
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 11,
@@ -666,11 +675,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/2.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/3.webp"
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 12,
@@ -728,11 +737,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/2.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/3.webp"
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 13,
@@ -790,11 +799,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/1.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/2.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/3.webp"
+      "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 14,
@@ -852,11 +861,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/1.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/2.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/3.webp"
+      "https://images.pexels.com/photos/586750/pexels-photo-586750.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/586750/pexels-photo-586750.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 15,
@@ -914,11 +923,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/1.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/2.webp",
-      "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/3.webp"
+      "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 16,
@@ -974,9 +983,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/apple/1.webp"
+      "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/apple/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 17,
@@ -1032,9 +1043,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/beef-steak/1.webp"
+      "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/beef-steak/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 18,
@@ -1091,9 +1104,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/cat-food/1.webp"
+      "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3879065/pexels-photo-3879065.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cat-food/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 19,
@@ -1149,10 +1164,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/1.webp",
-      "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/2.webp"
+      "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/chicken-meat/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 20,
@@ -1208,9 +1224,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/1.webp"
+      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cooking-oil/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 21,
@@ -1266,9 +1284,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/cucumber/1.webp"
+      "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/cucumber/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 22,
@@ -1325,9 +1345,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/dog-food/1.webp"
+      "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/5731874/pexels-photo-5731874.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/dog-food/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 23,
@@ -1383,9 +1405,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/eggs/1.webp"
+      "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/236804/pexels-photo-236804.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/4110013/pexels-photo-4110013.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/eggs/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 24,
@@ -1441,9 +1465,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/fish-steak/1.webp"
+      "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/725990/pexels-photo-725990.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/fish-steak/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 25,
@@ -1499,9 +1525,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/1.webp"
+      "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-bell-pepper/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 26,
@@ -1557,9 +1585,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/1.webp"
+      "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/green-chili-pepper/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 27,
@@ -1615,9 +1645,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/honey-jar/1.webp"
+      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/honey-jar/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 28,
@@ -1673,12 +1705,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/ice-cream/1.webp",
-      "https://cdn.dummyjson.com/product-images/groceries/ice-cream/2.webp",
-      "https://cdn.dummyjson.com/product-images/groceries/ice-cream/3.webp",
-      "https://cdn.dummyjson.com/product-images/groceries/ice-cream/4.webp"
+      "https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1172070/pexels-photo-1172070.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3658/food-dessert-cake-eggs.jpg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/ice-cream/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 29,
@@ -1734,9 +1765,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/juice/1.webp"
+      "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/162670/juice-orange-drink-fresh-162670.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/juice/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=300"
   },
   {
     "id": 30,
@@ -1792,9 +1825,11 @@ var products = [
       "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
     },
     "images": [
-      "https://cdn.dummyjson.com/product-images/groceries/kiwi/1.webp"
+      "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg?auto=compress&cs=tinysrgb&w=500"
     ],
-    "thumbnail": "https://cdn.dummyjson.com/product-images/groceries/kiwi/thumbnail.webp"
+    "thumbnail": "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=300"
   }
 ];
 
