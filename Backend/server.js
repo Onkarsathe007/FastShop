@@ -19,6 +19,7 @@ app.set("views", path.join(__dirname, "/views"));
 //ejs mate setup.
 app.engine("ejs", ejsMate);
 
+//home route.
 app.get("/", async (req, res) => {
     try {
         var product = await productModel.find();
@@ -26,6 +27,15 @@ app.get("/", async (req, res) => {
     } catch (e) {
         console.log("Error:" + e + " Occured");
     }
+});
+
+
+app.get("/products/:id", async (req, res) => {
+    var { id } = req.params;
+    console.log(id);
+    const product = await productModel.findOne({ id: id });
+    console.log(product);
+    res.render("./product.ejs", { product });
 });
 
 app.listen(process.env.PORT, () => {
