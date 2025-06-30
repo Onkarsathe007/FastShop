@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const ejsMate = require("ejs-mate");
 const connectMongo = require("./conn/db.js");
+const schema = require("./utils/middlewares/mongoose/index.js");
+
 require("dotenv").config();
 
 const productModel = require("./models/productModel.js");
@@ -54,9 +56,7 @@ app.get("/products/:id/reviews", async (req, res) => {
         };
         const reviewSchema = schema.reviewSchema;
 
-        const { error, value }: reviewSchema.validate(reviewData);
-
-
+        const { error, value } = reviewSchema.validate(reviewData);
 
         // Find product and add review to reviews array
         await productModel.findOneAndUpdate(
