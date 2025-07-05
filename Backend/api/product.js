@@ -11,9 +11,9 @@ connectMongo();
 router.get("/:id", async (req, res) => {
     try {
         var { id } = req.params;
-        console.log(id);
         const product = await productModel.findOne({ id: id });
-        console.log(product);
+
+        res.locals.success = req.flash("success");
         res.render("./product.ejs", { product });
     } catch (e) {
         console.log("Error:" + e + " Occurred");
@@ -47,6 +47,7 @@ router.get("/:id/reviews", async (req, res) => {
             { $push: { reviews: reviewData } }
         );
         // Redirect back to product page 
+        req.flash("success", "Review added successfully");
         res.redirect(`/products/${id}`);
     } catch (error) {
         console.log("Error adding review:", error);
@@ -129,7 +130,7 @@ router.post("/:id/update", async (req, res) => {
         if (!updatedProduct) {
             return res.status(404).send("Product not found");
         }
-
+        req.flash("success", "Product Updated Successfully");
         res.redirect(`/products/${id}`);
     } catch (e) {
         console.log("Error updating product:" + e);
@@ -142,16 +143,17 @@ router.delete("/:id", async (req, res) => {
     console.log("Request method:", req.method);
     try {
         const { id } = req.params;
+        console.log(id);
         console.log("Attempting to delete product with ID:", id);
         const deletedProduct = await productModel.findOneAndDelete({ id: id });
 
         if (!deletedProduct) {
             console.log("Product not found with ID:", id);
-            return res.status(404).send("Product not found");
+            res.redirect("/");
         }
 
-        console.log("Product deleted successfully:", deletedProduct.title);
-        res.redirect("/products");
+        req.flash("success", "Product deleted successfully");
+        res.redirect("/");
     } catch (e) {
         console.log("Error deleting product:" + e);
         res.status(500).send("Error deleting product");

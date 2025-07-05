@@ -13,4 +13,3 @@ ConnectMongo()
 productModel.insertMany(products)
     .then((res) => { console.log("products saved") })
     .catch((e) => { console.log("Error Occred") });
-
