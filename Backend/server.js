@@ -1,31 +1,19 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const ejsMate = require("ejs-mate");
-const products = require("./api/product.js");
-const home = require("./api/home.js");
-require("dotenv").config();
 
-const path = require("path");
+// Setup all middleware
+const setupMiddleware = require("./middleware");
+setupMiddleware(app);
 
-//To handel post requrest.
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-//Serve static files
-app.use('/assets', express.static(path.join(__dirname, 'views/template/assets')));
-
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
-
-//method override
-const methodOverride = require('method-override');
-app.use(methodOverride('_method'));
-//set up ejs engine.
-app.engine("ejs", ejsMate);
+// Routes
+const products = require("./api/product");
+const home = require("./api/home");
 
 app.use("/products", products);
-app.use("", home);
+app.use("/", home);
 
 app.listen(process.env.PORT, () => {
-    console.log("Listing on port :" + process.env.PORT);
+    console.log("Listening on port: " + process.env.PORT);
 });
+
