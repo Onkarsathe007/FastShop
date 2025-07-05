@@ -17,6 +17,9 @@ app.use('/assets', express.static(path.join(__dirname, 'views/template/assets'))
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
+//method override
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 //set up ejs engine.
 app.engine("ejs", ejsMate);
 
