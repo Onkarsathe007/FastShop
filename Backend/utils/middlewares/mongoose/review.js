@@ -1,8 +1,9 @@
 const joi = require("joi");
 const reviewSchema = joi.object({
-    review: joi.number().required(),
+    rating: joi.number().integer().min(1).max(5).required(),
     comment: joi.string().required(),
-    reviewerName: joi.string(),
+    reviewerName: joi.string().required(),
+    date: joi.date().optional(),
 });
 
 module.exports = reviewSchema;
