@@ -11,13 +11,13 @@ module.exports = function setupMiddleware(app) {
     app.use(express.json());
 
     // Static file serving
-    app.use("/assets", express.static(path.join(__dirname, "../views/template/assets")));
+    app.use("/assets", express.static(path.join(__dirname, "../../views/template/assets")));
 
     // Template engine setup
     const ejsMate = require("ejs-mate");
     app.engine("ejs", ejsMate);
     app.set("view engine", "ejs");
-    app.set("views", path.join(__dirname, "../views"));
+    app.set("views", path.join(__dirname, "../../views"));
 
     // Override methods like PUT/DELETE
     app.use(methodOverride("_method"));

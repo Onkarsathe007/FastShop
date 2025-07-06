@@ -1,9 +1,9 @@
 const express = require("express");
 var router = express.Router();
-const connectMongo = require("../conn/db.js");
-const schema = require("../utils/middlewares/mongoose/index.js");
+const connectMongo = require("../../config/conn/db.js");
+const schema = require("../../utils/middlewares/mongoose/index.js");
 
-const productModel = require("../models/productModel.js");
+const productModel = require("../../models/product.model.js");
 
 //connecting to mongoDB.
 connectMongo();
