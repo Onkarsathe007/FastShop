@@ -7,7 +7,6 @@ const passport = require("passport");
 const LocalPassport = require("passport-local");
 
 
-
 //Middleares at: ~/api/middlware/user.middlware.js
 passport.use(new LocalPassport(User.authenticate()));
 
@@ -38,6 +37,20 @@ router.get("/login", async (req, res) => {
     res.render("./login.ejs")
 });
 
+
+router.post("/login",
+    passport.authenticate("local", {
+        failureFlash: true,
+        failureRedirect: "/login",
+        successFlash: true,
+        successRedirect: "/",
+    }),
+    async (req, res) => {
+        req.flash("success", "welcome back to Fastshop");
+        res.redirect("/")
+    }
+);
+
 router.get("/signup", async (req, res) => {
     res.locals.success = req.flash("error") || null;
     res.locals.error = req.flash("error") || null;
@@ -60,6 +73,5 @@ router.post("/signup", async (req, res) => {
         res.redirect("/signup")
     }
 });
-
 
 module.exports = router;
