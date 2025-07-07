@@ -4,6 +4,8 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
+const passport = require("passport");
+const passportLocal = require("passport-local");
 
 module.exports = function setupMiddleware(app) {
     // Parse form and JSON data
@@ -26,4 +28,9 @@ module.exports = function setupMiddleware(app) {
     app.use(cookieParser());
     app.use(session({ secret: "secret code", resave: false, saveUninitialized: false }));
     app.use(flash());
+
+    //passport | Authentication Setup
+    app.use(passport.initialize());
+    app.use(passport.session());
+
 };

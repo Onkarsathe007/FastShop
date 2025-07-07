@@ -1,6 +1,7 @@
-<%if(success && success.length){ %>
-<div id="flash-message" class="px-4 py-3 rounded-md bg-green-50 text-green-800 border border-green-200 shadow-sm w-full max-w-xl ml-3 flex justify-between items-center ml-4">
-  <p class="text-sm font-medium"><%=success%></p>
-  <button onclick="document.getElementById('flash-message').style.display='none'" class="text-green-800 hover:text-green-900 font-bold text-lg leading-none">&times;</button>
-</div>
-<%}%>
+<% if (success && success.length) { %>
+  <div id="flash-success" class="px-4 py-3 rounded-md bg-green-50 text-green-800 border border-green-200 shadow-sm w-full max-w-xl ml-4 flex justify-between items-center">
+    <p class="text-sm font-medium"><%= success %></p>
+    <button onclick="document.getElementById('flash-success').style.display='none'" class="text-green-800 hover:text-green-900 font-bold text-lg leading-none">&times;</button>
+  </div>
+<% } %>
+
