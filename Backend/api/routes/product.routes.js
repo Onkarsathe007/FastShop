@@ -5,14 +5,12 @@ const schema = require("../../utils/middlewares/mongoose/index.js");
 const { isLoggedIn } = require("../middleware/auth.middlware.js");
 const productModel = require("../../models/product.model.js");
 
-
 //connecting to mongoDB.
 connectMongo();
 
 router.get("/new", isLoggedIn, (req, res) => {
     res.render("./components/admin/new.ejs");
 });
-
 
 router.post("/new", (req, res) => {
     const {
@@ -79,7 +77,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.get("/:id/reviews", async (req, res) => {
+router.get("/:id/reviews", isLoggedIn, async (req, res) => {
     try {
         const { id } = req.params;
         const { reviewCount, reviewerName, review } = req.query;
@@ -113,7 +111,7 @@ router.get("/:id/reviews", async (req, res) => {
     }
 });
 
-router.get("/:id/update", async (req, res) => {
+router.get("/:id/update", isLoggedIn, async (req, res) => {
     try {
         var { id } = req.params;
         const product = await productModel.findOne({ _id: id });
