@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Schema for Review 
 const reviewSchema = new Schema({
-    rating: { type: Number, required: true },
+    rating: { type: Number, default: 0 },
     comment: String,
     date: { type: Date, default: Date.now },
     reviewerName: String,
@@ -25,7 +25,7 @@ const metaSchema = new Schema({
 });
 
 const productSchema = new Schema({
-    id: { type: Number, unique: true }, // You can skip this if using MongoDB's _id
+    id: { type: Number, default: "0" }, // You can skip this if using MongoDB's _id
     title: { type: String, required: true },
     description: String,
     category: String,

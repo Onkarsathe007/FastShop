@@ -1,6 +1,6 @@
 <%layout("./template/boilerplate.ejs") %>
         
-<form action="/products/<%=product.id%>/update" method="POST" class="mt-12 bg-white border rounded-lg shadow-sm p-6 space-y-6">
+<form action="/products/<%=product._id%>/update" method="POST" class="mt-12 bg-white border rounded-lg shadow-sm p-6 space-y-6">
 
     <h2 class="text-xl font-semibold text-gray-900 mb-4">Edit Product Info</h2>
     
@@ -120,19 +120,19 @@
 <!-- All Buttons in One Line -->
 <div class="pt-4 flex space-x-4">
     <!-- Update Form -->
-    <form action="/products/<%= product.id %>?_method=PUT" method="POST">
+    <form action="/products/<%= product._id %>?_method=PUT" method="POST">
         <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
             Update Product
         </button>
     </form>
 
     <!-- Cancel Link -->
-    <a href="/products/<%= product.id %>" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors text-center">
+    <a href="/products/<%= product._id %>" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors text-center">
         Cancel
     </a>
 
     <!-- Delete Form -->
-    <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
         <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors">
             Delete Product
         </button>
