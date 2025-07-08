@@ -26,14 +26,14 @@ router.get("/", async (req, res) => {
 
 router.get("/registerUser", async (req, res) => {
     let fakeUser = new User({
-        email: "shubham@gmail.com",
-        username: "nitin1711",
+        email: "shubham@gmail.com", username: "nitin1711",
     });
     let registerUser = await User.register(fakeUser, "pass@123")
     res.send(registerUser);
 });
 
 router.get("/login", async (req, res) => {
+    res.locals.error = req.flash("error")
     res.render("./login.ejs")
 });
 
@@ -46,14 +46,12 @@ router.post("/login",
         successRedirect: "/",
     }),
     async (req, res) => {
-        req.flash("success", "welcome back to Fastshop");
-        res.redirect("/")
     }
 );
 
 router.get("/signup", async (req, res) => {
-    res.locals.success = req.flash("error") || null;
-    res.locals.error = req.flash("error") || null;
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
     res.render("./signup.ejs")
 });
 
@@ -67,7 +65,7 @@ router.post("/signup", async (req, res) => {
         var registerUser = await User.register(user, password);
         console.log(registerUser);
         req.flash("success", "Signup Successfully");
-        res.redirect("/")
+        res.redirect("/");
     } catch (e) {
         req.flash("error", e.message);
         res.redirect("/signup")

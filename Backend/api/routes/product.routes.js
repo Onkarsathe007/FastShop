@@ -8,10 +8,67 @@ const productModel = require("../../models/product.model.js");
 //connecting to mongoDB.
 connectMongo();
 
+router.get("/new", (req, res) => {
+    res.render("./components/admin/new.ejs");
+});
+
+
+router.post("/new", (req, res) => {
+    const {
+        images = [],
+        thumbnail,
+        title,
+        brand,
+        sku,
+        price,
+        discountPercentage,
+        stock,
+        category,
+        weight,
+        minimumOrderQuantity,
+        width,
+        height,
+        depth,
+        returnPolicy,
+        shippingInformation,
+        warrantyInformation,
+        description,
+    } = req.body;
+
+    // Log or process the data
+    console.log("New Product Data:");
+    console.log({
+        images,
+        thumbnail,
+        title,
+        brand,
+        sku,
+        price,
+        discountPercentage,
+        stock,
+        category,
+        weight,
+        minimumOrderQuantity,
+        width,
+        height,
+        depth,
+        returnPolicy,
+        shippingInformation,
+        warrantyInformation,
+        description,
+    });
+
+    // You can store to DB here
+    productModel.create(req.body);
+    // Redirect or respond
+    res.send("Product received successfully!");
+});
+
+
 router.get("/:id", async (req, res) => {
     try {
         var { id } = req.params;
-        const product = await productModel.findOne({ id: id });
+        const product = await productModel.findOne({ _id: id });
 
         res.locals.success = req.flash("success");
         res.render("./product.ejs", { product });
@@ -42,8 +99,8 @@ router.get("/:id/reviews", async (req, res) => {
         }
 
         // Find product and add review to reviews array
-        await productModel.findOneAndUpdate(
-            { id: id },
+        await productModel.findByIdAndUpdate(
+            { _id: id },
             { $push: { reviews: reviewData } }
         );
         // Redirect back to product page 
@@ -58,7 +115,7 @@ router.get("/:id/reviews", async (req, res) => {
 router.get("/:id/update", async (req, res) => {
     try {
         var { id } = req.params;
-        const product = await productModel.findOne({ id: id });
+        const product = await productModel.findOne({ _id: id });
         if (!product) {
             return res.status(404).send("Product not found");
         }
@@ -122,7 +179,7 @@ router.post("/:id/update", async (req, res) => {
         };
 
         const updatedProduct = await productModel.findOneAndUpdate(
-            { id: id },
+            { _id: id },
             updateData,
             { new: true }
         );
@@ -145,7 +202,7 @@ router.delete("/:id", async (req, res) => {
         const { id } = req.params;
         console.log(id);
         console.log("Attempting to delete product with ID:", id);
-        const deletedProduct = await productModel.findOneAndDelete({ id: id });
+        const deletedProduct = await productModel.findOneAndDelete({ _id: id });
 
         if (!deletedProduct) {
             console.log("Product not found with ID:", id);
