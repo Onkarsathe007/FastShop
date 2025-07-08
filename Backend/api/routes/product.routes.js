@@ -2,13 +2,14 @@ const express = require("express");
 var router = express.Router();
 const connectMongo = require("../../config/conn/db.js");
 const schema = require("../../utils/middlewares/mongoose/index.js");
-
+const { isLoggedIn } = require("../middleware/auth.middlware.js");
 const productModel = require("../../models/product.model.js");
+
 
 //connecting to mongoDB.
 connectMongo();
 
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
     res.render("./components/admin/new.ejs");
 });
 

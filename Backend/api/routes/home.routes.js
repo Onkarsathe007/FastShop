@@ -17,12 +17,12 @@ router.get("/", async (req, res) => {
     try {
         var product = await productModel.find();
         res.locals.success = req.flash("success");
+        res.locals.error = req.flash("error");
         res.render("home.ejs", { product });
     } catch (e) {
         console.log("Error:" + e + " Occured");
     }
 });
-
 
 router.get("/registerUser", async (req, res) => {
     let fakeUser = new User({
