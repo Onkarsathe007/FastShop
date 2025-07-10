@@ -32,4 +32,11 @@ module.exports = function setupMiddleware(app) {
     //passport | Authentication Setup
     app.use(passport.initialize());
     app.use(passport.session());
+
+
+    app.use((req, res, next) => {
+        res.locals.isAuthenticated = req.isAuthenticated();
+        res.locals.currentUser = req.user; // optional: to access user details in EJS
+        next();
+    });
 };

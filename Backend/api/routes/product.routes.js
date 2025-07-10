@@ -3,6 +3,7 @@ var router = express.Router();
 const connectMongo = require("../../config/conn/db.js");
 const schema = require("../../utils/middlewares/mongoose/index.js");
 const { isLoggedIn } = require("../middleware/auth.middlware.js");
+const { redirectUrl } = require("../middleware/auth.middlware.js");
 const productModel = require("../../models/product.model.js");
 
 //connecting to mongoDB.

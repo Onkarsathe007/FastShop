@@ -5,6 +5,7 @@ const connectMongo = require("../../config/conn/db.js");
 const User = require("../../models/user.model.js");
 const passport = require("passport");
 const LocalPassport = require("passport-local");
+const { redirectUrl } = require("../middleware/auth.middlware.js");
 
 
 //Middleares at: ~/api/middlware/user.middlware.js
@@ -24,14 +25,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/registerUser", async (req, res) => {
-    let fakeUser = new User({
-        email: "shubham@gmail.com", username: "nitin1711",
-    });
-    let registerUser = await User.register(fakeUser, "pass@123")
-    res.send(registerUser);
-});
-
 router.get("/login", async (req, res) => {
     res.locals.error = req.flash("error")
     res.render("./login.ejs")
@@ -39,13 +32,14 @@ router.get("/login", async (req, res) => {
 
 
 router.post("/login",
+    redirectUrl,
     passport.authenticate("local", {
         failureFlash: true,
         failureRedirect: "/login",
         successFlash: true,
-        successRedirect: "/",
     }),
     async (req, res) => {
+        res.redirect(res.locals.redirectUrl || "/")
     }
 );
 
@@ -63,13 +57,26 @@ router.post("/signup", async (req, res) => {
             username: username,
         };
         var registerUser = await User.register(user, password);
-        console.log(registerUser);
-        req.flash("success", "Signup Successfully");
-        res.redirect("/");
+        //Automatic Login after the sign-up
+        req.login(registerUser, (err) => {
+            if (err) {
+                return next(err);
+            }
+            req.flash("success", "Signup Successfully");
+            res.redirect("/");
+        });
     } catch (e) {
         req.flash("error", e.message);
         res.redirect("/signup")
     }
+});
+
+router.get("/logout", (req, res, next) => {
+    req.logout((err) => {
+        next(err);
+    });
+    req.flash("success", "Logout Successfully");
+    res.redirect("/");
 });
 
 module.exports = router;
