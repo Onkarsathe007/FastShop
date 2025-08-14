@@ -1,4 +1,30 @@
-        <!-- Main Navigation -->
+<script>
+//script to show the ac details
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown = document.querySelector(".dropdown");
+    const button = dropdown.querySelector("button");
+    const menu = dropdown.querySelector(".dropdown-menu");
+
+    // Toggle dropdown menu on button click
+    button.addEventListener("click", function (e) {
+        e.stopPropagation();
+        menu.classList.toggle("hidden");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function () {
+        if (!menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+        }
+    });
+
+    // Prevent closing dropdown when clicking inside the menu
+    menu.addEventListener("click", function (e) {
+        e.stopPropagation();
+    });
+});
+</script>
+<!-- Main Navigation -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo -->
@@ -13,7 +39,6 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    
                     
                     <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">New Arrivals</a>
                     <a href="#" class="text-gray-700 hover:text-blue-600 font-medium transition-colors">Sale</a>
@@ -36,13 +61,14 @@
 
                 <!-- Right Side Icons -->
                 <div class="flex items-center space-x-4">
+            <% if(isAuthenticated){ %>
                     <!-- User Account -->
                     <div class="dropdown relative">
                         <button class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors">
                             <i data-lucide="user" class="w-6 h-6"></i>
                             <span class="hidden lg:block">Account</span>
                         </button>
-                        <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border hidden animate-fade-in">
+                        <div class="dropdown-menu absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border hidden animate-fade-in hidden">
                             <div class="p-2">
                                 <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
                                     <i data-lucide="user-circle" class="w-4 h-4 text-gray-400"></i>
@@ -57,14 +83,20 @@
                                     <span>Wishlist</span>
                                 </a>
                                 <hr class="my-2">
-                                <a href="#" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-red-600">
+                                <a href="/logout" class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-red-600">
                                     <i data-lucide="log-out" class="w-4 h-4"></i>
                                     <span>Sign Out</span>
                                 </a>
                             </div>
                         </div>
                     </div>
+             <%}else{ %>
 
+          
+                <button type="submit" onclick="window.location.href='/login'" class="w-24 h-10 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors shadow-sm font-medium flex items-center justify-center text-sm">
+                      Login
+                </button>
+               <%}%>
                     <!-- Wishlist -->
                     <a href="#" class="relative text-gray-700 hover:text-red-500 transition-colors">
                         <i data-lucide="heart" class="w-6 h-6"></i>
@@ -138,4 +170,42 @@
             </div>
         </div>
     </nav>
+   <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add cart animation on hover
+            const cartIcon = document.querySelector('[data-lucide="shopping-cart"]').parentElement;
+            cartIcon.addEventListener('mouseenter', () => {
+                cartIcon.classList.add('scale-110');
+                cartIcon.classList.add('transition-transform');
+            });
+            cartIcon.addEventListener('mouseleave', () => {
+                cartIcon.classList.remove('scale-110');
+            });
+        });
+    </script>
 

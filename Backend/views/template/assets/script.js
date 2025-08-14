@@ -1,3 +1,4 @@
+
 //This is icon initilization script
 
 lucide.createIcons();
@@ -124,3 +125,5 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     // Add your login logic here
     alert('Login form submitted! Check console for details.');
 });
+
+

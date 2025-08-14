@@ -4,6 +4,8 @@ const connectMongo = require("../../config/conn/db.js");
 const schema = require("../../utils/middlewares/mongoose/index.js");
 const { isLoggedIn } = require("../middleware/auth.middlware.js");
 const { redirectUrl } = require("../middleware/auth.middlware.js");
+const { checkProductOwnership } = require("../middleware/auth.middlware.js");
+
 const productModel = require("../../models/product.model.js");
 
 //connecting to mongoDB.
@@ -13,7 +15,7 @@ router.get("/new", isLoggedIn, (req, res) => {
     res.render("./components/admin/new.ejs");
 });
 
-router.post("/new", (req, res) => {
+router.post("/new", async (req, res) => {
     const {
         images = [],
         thumbnail,
@@ -35,31 +37,14 @@ router.post("/new", (req, res) => {
         description,
     } = req.body;
 
-    // Log or process the data
-    console.log("New Product Data:");
-    console.log({
-        images,
-        thumbnail,
-        title,
-        brand,
-        sku,
-        price,
-        discountPercentage,
-        stock,
-        category,
-        weight,
-        minimumOrderQuantity,
-        width,
-        height,
-        depth,
-        returnPolicy,
-        shippingInformation,
-        warrantyInformation,
-        description,
-    });
-
     // You can store to DB here
-    productModel.create(req.body);
+    const newProduct = new productModel({
+        ...req.body,
+        owner: req.user._id // assign the owner
+    });
+    // Save the product
+    await newProduct.save();
+    console.log("Data Saved");
     // Redirect or respond
     res.send("Product received successfully!");
 });
@@ -71,6 +56,7 @@ router.get("/:id", async (req, res) => {
         const product = await productModel.findOne({ _id: id });
 
         res.locals.success = req.flash("success");
+        console.log(req.user);
         res.render("./product.ejs", { product });
     } catch (e) {
         console.log("Error:" + e + " Occurred");
@@ -126,7 +112,7 @@ router.get("/:id/update", isLoggedIn, async (req, res) => {
     }
 });
 
-router.post("/:id/update", async (req, res) => {
+router.post("/:id/update", checkProductOwnership, async (req, res) => {
     try {
         var { id } = req.params;
         const {
@@ -177,7 +163,6 @@ router.post("/:id/update", async (req, res) => {
             images: processedImages,
             thumbnail: thumbnail && thumbnail.trim() !== '' ? thumbnail : undefined
         };
-
         const updatedProduct = await productModel.findOneAndUpdate(
             { _id: id },
             updateData,
@@ -187,6 +172,7 @@ router.post("/:id/update", async (req, res) => {
         if (!updatedProduct) {
             return res.status(404).send("Product not found");
         }
+        console.log("fuck you this time");
         req.flash("success", "Product Updated Successfully");
         res.redirect(`/products/${id}`);
     } catch (e) {
@@ -194,6 +180,7 @@ router.post("/:id/update", async (req, res) => {
         res.status(500).send("Error updating product");
     }
 });
+
 
 router.delete("/:id", async (req, res) => {
     console.log("DELETE route hit with ID:", req.params.id);

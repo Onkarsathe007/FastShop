@@ -16,7 +16,8 @@ passport.deserializeUser(User.deserializeUser());
 
 router.get("/", async (req, res) => {
     try {
-        var product = await productModel.find();
+        var product = await productModel.find().populate("owner");
+        console.log(product);
         res.locals.success = req.flash("success");
         res.locals.error = req.flash("error");
         res.render("home.ejs", { product });

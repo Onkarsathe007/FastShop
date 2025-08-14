@@ -47,6 +47,11 @@ const productSchema = new Schema({
     meta: metaSchema,
     images: [String],
     thumbnail: String,
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+        //here we refering to the model, not the schema.
+    }
 });
 
 const productModel = mongoose.model("product", productSchema);
