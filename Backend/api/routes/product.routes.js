@@ -3,7 +3,6 @@ var router = express.Router();
 const connectMongo = require("../../config/conn/db.js");
 const schema = require("../../utils/middlewares/mongoose/index.js");
 const { isLoggedIn } = require("../middleware/auth.middlware.js");
-
 const { isOwner } = require("../middleware/auth.middlware.js");
 const { redirectUrl } = require("../middleware/auth.middlware.js");
 const { checkProductOwnership } = require("../middleware/auth.middlware.js");
@@ -63,16 +62,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/:id/reviews", isLoggedIn, async (req, res) => {
+router.post("/:id/reviews", isLoggedIn, async (req, res) => {
   try {
     const { id } = req.params;
-    const { reviewCount, reviewerName, review } = req.query;
+    const { reviewCount, reviewerName, review } = req.body;
 
     const reviewData = {
       rating: parseInt(reviewCount),
       reviewerName: reviewerName,
       comment: review,
       date: new Date(),
+      reviewer: req.user._id.toString(),
+      reviewerEmail: req.user.email,
     };
     const reviewSchema = schema.reviewSchema;
 
@@ -94,6 +95,63 @@ router.get("/:id/reviews", isLoggedIn, async (req, res) => {
   } catch (error) {
     console.log("Error adding review:", error);
     res.status(500).send("Error adding review");
+  }
+});
+
+// Update a specific review
+router.put("/:id/reviews/:reviewId", isLoggedIn, async (req, res) => {
+  try {
+    const { id, reviewId } = req.params;
+    const { reviewCount, reviewerName, review } = req.body;
+
+    // Find the product first
+    const product = await productModel.findById(id);
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    // Find the specific review
+    const reviewToUpdate = product.reviews.id(reviewId);
+    if (!reviewToUpdate) {
+      return res.status(404).send("Review not found");
+    }
+
+    // Check if current user is the review author
+    if (reviewToUpdate.reviewer.toString() !== req.user._id.toString()) {
+      return res.status(403).send("You can only edit your own reviews");
+    }
+
+    const updatedReviewData = {
+      rating: parseInt(reviewCount),
+      reviewerName: reviewerName,
+      comment: review,
+      date: new Date(),
+      reviewer: req.user._id.toString(),
+      reviewerEmail: req.user.email,
+    };
+
+    const reviewSchema = schema.reviewSchema;
+    const { error, value } = reviewSchema.validate(updatedReviewData);
+
+    if (error) {
+      console.log("Review validation error:", error.details);
+      return res.status(400).send("Invalid review data");
+    }
+
+    // Update the review
+    reviewToUpdate.rating = updatedReviewData.rating;
+    reviewToUpdate.reviewerName = updatedReviewData.reviewerName;
+    reviewToUpdate.comment = updatedReviewData.comment;
+    reviewToUpdate.date = updatedReviewData.date;
+
+    // Save the product
+    await product.save();
+
+    req.flash("success", "Review updated successfully");
+    res.redirect(`/products/${id}`);
+  } catch (error) {
+    console.log("Error updating review:", error);
+    res.status(500).send("Error updating review");
   }
 });
 
@@ -182,7 +240,7 @@ router.post("/:id/update", checkProductOwnership, async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isOwner, async (req, res) => {
   console.log("DELETE route hit with ID:", req.params.id);
   console.log("Request method:", req.method);
   try {
