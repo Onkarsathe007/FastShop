@@ -7,7 +7,6 @@ const passport = require("passport");
 const LocalPassport = require("passport-local");
 const { redirectUrl } = require("../middleware/auth.middlware.js");
 
-
 //Middleares at: ~/api/middlware/user.middlware.js
 passport.use(new LocalPassport(User.authenticate()));
 
@@ -15,69 +14,69 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 router.get("/", async (req, res) => {
-    try {
-        var product = await productModel.find().populate("owner");
-        console.log(product);
-        res.locals.success = req.flash("success");
-        res.locals.error = req.flash("error");
-        res.render("home.ejs", { product });
-    } catch (e) {
-        console.log("Error:" + e + " Occured");
-    }
+  try {
+    var product = await productModel.find().populate("owner");
+    console.log(product);
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.render("home.ejs", { product });
+  } catch (e) {
+    console.log("Error:" + e + " Occured");
+  }
 });
 
 router.get("/login", async (req, res) => {
-    res.locals.error = req.flash("error")
-    res.render("./login.ejs")
+  res.locals.error = req.flash("error");
+  res.render("./login.ejs");
 });
 
-
-router.post("/login",
-    redirectUrl,
-    passport.authenticate("local", {
-        failureFlash: true,
-        failureRedirect: "/login",
-        successFlash: true,
-    }),
-    async (req, res) => {
-        res.redirect(res.locals.redirectUrl || "/")
-    }
+router.post(
+  "/login",
+  redirectUrl,
+  passport.authenticate("local", {
+    failureFlash: true,
+    failureRedirect: "/login",
+    successFlash: true,
+  }),
+  async (req, res) => {
+    res.redirect(res.locals.redirectUrl || "/");
+  },
 );
 
 router.get("/signup", async (req, res) => {
-    res.locals.success = req.flash("success");
-    res.locals.error = req.flash("error");
-    res.render("./signup.ejs")
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.render("./signup.ejs");
 });
 
 router.post("/signup", async (req, res) => {
-    try {
-        var { email, username, password } = req.body;
-        const user = {
-            email: email,
-            username: username,
-        };
-        var registerUser = await User.register(user, password);
-        //Automatic Login after the sign-up
-        req.login(registerUser, (err) => {
-            if (err) {
-                return next(err);
-            }
-            req.flash("success", "Signup Successfully");
-            res.redirect("/");
-        });
-    } catch (e) {
-        req.flash("error", e.message);
-        res.redirect("/signup")
-    }
+  try {
+    var { email, username, password } = req.body;
+    const user = {
+      email: email,
+      username: username,
+    };
+    var registerUser = await User.register(user, password);
+    //Automatic Login after the sign-up
+    req.login(registerUser, (err) => {
+      if (err) {
+        return next(err);
+      }
+      req.flash("success", "Signup Successfully");
+      res.redirect("/");
+    });
+  } catch (e) {
+    req.flash("error", e.message);
+    res.redirect("/signup");
+  }
 });
 
 router.get("/logout", (req, res, next) => {
-    req.logout((err) => {
-        next(err);
-    });
-    req.flash("success", "Logout Successfully");
-    res.redirect("/");
+  req.logout((err) => {
+    next(err);
+  });
+  req.flash("success", "Logout Successfully");
+  res.redirect("/");
 });
 
 module.exports = router;

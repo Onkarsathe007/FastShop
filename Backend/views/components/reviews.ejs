@@ -9,11 +9,18 @@
                 <span class="text-4xl font-bold mr-2">
                     <%=product.rating%>
                 </span>
-                <div>
-                    <div class="flex text-yellow-400 text-lg">★★☆☆☆</div>
-                    <p class="text-sm text-gray-600">out of 5</p>
-                </div>
-            </div>
+                    <div>
+                        <div class="flex text-yellow-400 text-lg">
+                            <% for(let star=1; star<=5; star++) { %>
+                                <% if(star <= Math.floor(product.rating)) { %>
+                                    ★
+                                <% } else { %>
+                                    ☆
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <p class="text-sm text-gray-600">out of 5</p>
+                    </div>            </div>
             <div class="text-sm text-gray-600">
                 <p>
                     <%=product.reviews.length%> customer reviews
@@ -29,7 +36,15 @@
                     <div class="flex items-start justify-between mb-2">
                         <div>
                             <div class="flex items-center mb-1">
-                                <div class="flex text-yellow-400 mr-2">★★★☆☆</div>
+                                <div class="flex text-yellow-400 mr-2">
+                                    <% for(let star=1; star<=5; star++) { %>
+                                        <% if(star <= Math.floor(product.reviews[i].rating)) { %>
+                                            ★
+                                        <% } else { %>
+                                            ☆
+                                        <% } %>
+                                    <% } %>
+                                </div>
                                 <span class="font-medium">
                                     <%= product.reviews[i].reviewerName%>
                                 </span>
@@ -39,7 +54,6 @@
                                     formattedDate=dateObj.toLocaleDateString("en-US", { day: "2-digit" , month: "long" ,
                                     year: "numeric" }); %>
                                     Reviewed on: <%= formattedDate %>
-                            </p>
                             </p>
                         </div>
                     </div>
@@ -53,7 +67,7 @@
         <div class="mt-6 pt-6 border-t">
             <button
                 class="bg-gray-100 text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
-                onclick="" id="addReview">
+                onclick="toggleReviewForm()" id="addReview">
                 Write a Review
             </button>
 
@@ -107,6 +121,32 @@
 </div>
 
 <script>
+    // Toggle review form visibility
+    function toggleReviewForm() {
+        const form = document.getElementById('reviewForm');
+        const button = document.getElementById('addReview');
+        
+        if (form.classList.contains('hidden')) {
+            form.classList.remove('hidden');
+            button.textContent = 'Hide Review Form';
+        } else {
+            form.classList.add('hidden');
+            button.textContent = 'Write a Review';
+        }
+    }
+
+    // Cancel review button
+    document.getElementById('cancelReview').addEventListener('click', function() {
+        const form = document.getElementById('reviewForm');
+        const button = document.getElementById('addReview');
+        
+        form.classList.add('hidden');
+        button.textContent = 'Write a Review';
+        
+        // Reset form
+        document.querySelector('form[name="reviewForm"]').reset();
+    });
+
     // Rating validation
     const reviewCountInput = document.getElementById('reviewCount');
 
