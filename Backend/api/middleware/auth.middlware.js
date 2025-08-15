@@ -40,3 +40,15 @@ module.exports.checkProductOwnership = async (req, res, next) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
+module.exports.isOwner = async (req, res, next) => {
+  const { id } = req.params; // 1. Get ID first
+  const product = await productModel.findById(id); // 2. Use it here
+  if (!product) {
+    return res.status(404).json({ error: "Product not found" });
+  }
+  if (req.user && String(req.user._id) === String(product.owner)) {
+    return next();
+  }
+  return res.status(403).json({ error: "You are unauthorized" });
+};
