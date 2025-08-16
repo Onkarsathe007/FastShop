@@ -1,4 +1,5 @@
 <%- include("./flash.ejs")%>
+<%- include("./failureFlash.ejs")%>
 <main class="max-w-6xl mx-auto px-4 py-10">
     <!-- Product Grid -->
 
@@ -6,7 +7,7 @@
       <!-- Product Card -->
     <%for(let item of product){ %>
       <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition"> 
-        <a href="/products/<%=item.id%>">
+        <a href="/products/<%=item._id%>">
          <img src="<%=item.images[0]%>" alt="<%=item.brand%>" class="w-full h-64 object-cover"/>
          <div class="p-4">
           <h2 class="text-xl font-semibold mb-1"><%= item.title %></h2>

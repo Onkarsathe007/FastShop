@@ -1,0 +1,7 @@
+<% if (error && error.length) { %>
+  <div id="flash-success" class="px-4 ml-2 mr-2 py-3 rounded-md bg-red-50 text-red-800 border border-red-200 shadow-sm w-full max-w-xl flex justify-between items-center">
+    <p class="text-sm font-medium"><%= error %></p>
+    <button onclick="document.getElementById('flash-success').style.display='none'" class="text-red-800 hover:text-red-900 font-bold text-lg leading-none">&times;</button>
+  </div>
+<% } %>
+
