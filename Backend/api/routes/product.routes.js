@@ -13,9 +13,10 @@ const productController = require("../controllers/product.controller.js");
 //connecting to mongoDB.
 connectMongo();
 
-router.get("/new", isLoggedIn, productController.newRender);
-
-router.post("/new", productController.newProduct);
+router
+  .route("/new")
+  .get(isLoggedIn, productController.newRender)
+  .post(productController.newProduct);
 
 router.get("/:id", productController.renderProduct);
 
@@ -27,18 +28,10 @@ router.put(
   productController.updateReview,
 );
 
-router.get(
-  "/:id/update",
-  isOwner,
-  isLoggedIn,
-  productController.updateProductRender,
-);
-
-router.post(
-  "/:id/update",
-  checkProductOwnership,
-  productController.updateProduct,
-);
+router
+  .route("/:id/update")
+  .get(isOwner, isLoggedIn, productController.updateProductRender)
+  .post(checkProductOwnership, productController.updateProduct);
 
 router.delete("/:id", isOwner, productController.deleteProduct);
 

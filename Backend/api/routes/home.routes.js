@@ -17,13 +17,15 @@ passport.deserializeUser(User.deserializeUser());
 
 router.get("/", homeController.index);
 
-router.get("/login", homeController.loginRender);
+router
+  .route("/login")
+  .get(homeController.loginRender)
+  .post(redirectUrl, homeController.authenticate);
 
-router.post("/login", redirectUrl, homeController.authenticate);
-
-router.get("/signup", homeController.signUpRender);
-
-router.post("/signup", homeController.signUp);
+router
+  .route("/signup")
+  .get(homeController.signUpRender)
+  .post(homeController.signUp);
 
 router.get("/logout", homeController.logout);
 
