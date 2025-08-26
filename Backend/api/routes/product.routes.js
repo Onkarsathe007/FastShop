@@ -209,84 +209,81 @@ router.get("/:id/update", isOwner, isLoggedIn, async (req, res) => {
   }
 });
 
-router.post("/:id/update", checkProductOwnership, async (req, res) => {
-  try {
-    var { id } = req.params;
-    const {
-      title,
-      brand,
-      sku,
-      price,
-      discountPercentage,
-      stock,
-      category,
-      weight,
-      minimumOrderQuantity,
-      width,
-      height,
-      depth,
-      returnPolicy,
-      shippingInformation,
-      warrantyInformation,
-      description,
-      images,
-      thumbnail,
-    } = req.body;
+router.post(
+  "/:id/update",
+  upload.array("images", 5),
+  checkProductOwnership,
+  async (req, res) => {
+    try {
+      var { id } = req.params;
+      const {
+        title,
+        brand,
+        sku,
+        price,
+        discountPercentage,
+        stock,
+        category,
+        weight,
+        minimumOrderQuantity,
+        width,
+        height,
+        depth,
+        returnPolicy,
+        shippingInformation,
+        warrantyInformation,
+        description,
+        images,
+        thumbnail,
+      } = req.body;
 
-    // Process images array - filter out empty strings and convert to object format
-    const processedImages = Array.isArray(images)
-      ? images.filter((img) => img && img.trim() !== "").map((img, index) => ({
-          url: img,
-          public_id: `product_${id}_${index}`,
-          original: img
-        }))
-      : images && images.trim() !== ""
-        ? [{
-            url: images,
-            public_id: `product_${id}_0`,
-            original: images
-          }]
-        : [];
+      const uploadedImages = req.files.map((file) => ({
+        url: file.path, // Cloudinary URL
+        public_id: file.filename, // Cloudinary ID
+        original: file.originalname,
+      }));
 
-    const updateData = {
-      title,
-      brand,
-      sku,
-      price: parseFloat(price),
-      discountPercentage: parseFloat(discountPercentage),
-      stock: parseInt(stock),
-      category,
-      weight: parseFloat(weight),
-      minimumOrderQuantity: parseInt(minimumOrderQuantity),
-      dimensions: {
-        width: parseFloat(width) || 0,
-        height: parseFloat(height) || 0,
-        depth: parseFloat(depth) || 0,
-      },
-      returnPolicy,
-      shippingInformation,
-      warrantyInformation,
-      description,
-      images: processedImages,
-      thumbnail: thumbnail && thumbnail.trim() !== "" ? thumbnail : undefined,
-    };
-    const updatedProduct = await productModel.findOneAndUpdate(
-      { _id: id },
-      updateData,
-      { new: true },
-    );
+      // Process images array - filter out empty strings and convert to object format
+      const updateData = {
+        title,
+        brand,
+        sku,
+        price: parseFloat(price),
+        discountPercentage: parseFloat(discountPercentage),
+        stock: parseInt(stock),
+        category,
+        weight: parseFloat(weight),
+        minimumOrderQuantity: parseInt(minimumOrderQuantity),
+        dimensions: {
+          width: parseFloat(width) || 0,
+          height: parseFloat(height) || 0,
+          depth: parseFloat(depth) || 0,
+        },
+        returnPolicy,
+        shippingInformation,
+        warrantyInformation,
+        description,
+        images: uploadedImages,
+        thumbnail: thumbnail && thumbnail.trim() !== "" ? thumbnail : undefined,
+      };
+      const updatedProduct = await productModel.findOneAndUpdate(
+        { _id: id },
+        updateData,
+        { new: true },
+      );
 
-    if (!updatedProduct) {
-      return res.status(404).send("Product not found");
+      if (!updatedProduct) {
+        return res.status(404).send("Product not found");
+      }
+      console.log("fuck you this time");
+      req.flash("success", "Product Updated Successfully");
+      res.redirect(`/products/${id}`);
+    } catch (e) {
+      console.log("Error updating product:" + e);
+      res.status(500).send("Error updating product");
     }
-    console.log("fuck you this time");
-    req.flash("success", "Product Updated Successfully");
-    res.redirect(`/products/${id}`);
-  } catch (e) {
-    console.log("Error updating product:" + e);
-    res.status(500).send("Error updating product");
-  }
-});
+  },
+);
 
 router.delete("/:id", isOwner, async (req, res) => {
   console.log("DELETE route hit with ID:", req.params.id);
