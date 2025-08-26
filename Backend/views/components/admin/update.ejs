@@ -1,6 +1,6 @@
 <%layout("./template/boilerplate.ejs") %>
         
-<form action="/products/<%=product._id%>/update" method="POST" class="mt-12 bg-white border rounded-lg shadow-sm p-6 space-y-6">
+<form action="/products/<%=product._id%>/update" method="POST" class="mt-12 bg-white border rounded-lg shadow-sm p-6 space-y-6" enctype="multipart/form-data">
 
     <h2 class="text-xl font-semibold text-gray-900 mb-4">Edit Product Info</h2>
     
@@ -8,12 +8,38 @@
         
         <!-- Product Images -->
         <div class="md:col-span-2">
-            <label class="block text-sm font-medium text-gray-700 mb-2">Product Images (URLs)</label>
-            <div class="space-y-3">
-                <input type="url" name="images[]" value="<%= product.images && product.images[0] ? product.images[0].url : '' %>" placeholder="https://example.com/image1.jpg" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <input type="url" name="images[]" value="<%= product.images && product.images[1] ? product.images[1].url : '' %>" placeholder="https://example.com/image2.jpg" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                <input type="url" name="images[]" value="<%= product.images && product.images[2] ? product.images[2].url : '' %>" placeholder="https://example.com/image3.jpg" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Product Images<label>
+            
+
+<style>
+  .image-row {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+  .image-row img {
+    width: 250px;              /* fixed width */
+    height: 300px;             /* fixed height */
+    object-fit: contain;       /* keep full image inside without cropping */
+    border: 1px solid #ddd;    /* optional border */
+    border-radius: 8px;
+    background: #f9f9f9;       /* background to fill behind smaller images */
+    padding: 5px;              /* spacing inside the box */
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  }
+</style>
+
+<div class="image-row">
+  <% product.images.forEach((image) => { %>
+    <img src="<%= image.url %>" alt="Product Image" />
+  <% }) %>
+</div>
+           <div class="space-y-3">
+                <input type="file" name="images">
+                <input type="file" name="images">
+                <input type="file" name="images">
+           </div>
         </div>
 
         <!-- Thumbnail URL -->
