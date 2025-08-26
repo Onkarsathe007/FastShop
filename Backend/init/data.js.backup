@@ -53,21 +53,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/2587370/pexels-photo-2587370.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028422_0",
-        original: "https://images.pexels.com/photos/2587370/pexels-photo-2587370.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028422_1",
-        original: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028422_2",
-        original: "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg"
-      }
+      "https://images.pexels.com/photos/2587370/pexels-photo-2587370.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/2587370/pexels-photo-2587370.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -126,21 +114,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg"
-      }
+      "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -199,21 +175,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg"
-      }
+      "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1115128/pexels-photo-1115128.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -272,21 +236,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg"
-      }
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1499327/pexels-photo-1499327.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -345,21 +297,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg"
-      }
+      "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3373730/pexels-photo-3373730.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2113855/pexels-photo-2113855.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -418,21 +358,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg"
-      }
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -491,21 +419,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"
-      }
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -564,21 +480,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg"
-      }
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -637,21 +541,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"
-      }
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -710,21 +602,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg"
-      }
+      "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/965989/pexels-photo-965989.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -783,21 +663,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg"
-      }
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -856,21 +724,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg"
-      }
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -929,21 +785,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
-      }
+      "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1002,21 +846,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/586750/pexels-photo-586750.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/586750/pexels-photo-586750.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
-      }
+      "https://images.pexels.com/photos/586750/pexels-photo-586750.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/586750/pexels-photo-586750.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1075,21 +907,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg"
-      }
+      "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1648776/pexels-photo-1648776.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/2062431/pexels-photo-2062431.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1147,21 +967,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg"
-      }
+      "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1219,21 +1027,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg"
-      }
+      "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1291,21 +1087,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/3879065/pexels-photo-3879065.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/3879065/pexels-photo-3879065.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg"
-      }
+      "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3879065/pexels-photo-3879065.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1363,21 +1147,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg"
-      }
+      "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1435,21 +1207,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg"
-      },
-      {
-        url: "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg"
-      }
+      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=300",
@@ -1507,21 +1267,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg"
-      }
+      "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/3650647/pexels-photo-3650647.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1579,21 +1327,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/5731874/pexels-photo-5731874.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/5731874/pexels-photo-5731874.jpeg"
-      }
+      "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3879066/pexels-photo-3879066.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/5731874/pexels-photo-5731874.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1598377/pexels-photo-1598377.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1651,21 +1387,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/236804/pexels-photo-236804.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/236804/pexels-photo-236804.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/4110013/pexels-photo-4110013.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/4110013/pexels-photo-4110013.jpeg"
-      }
+      "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/236804/pexels-photo-236804.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/4110013/pexels-photo-4110013.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/162712/egg-white-food-protein-162712.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1723,21 +1447,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/725990/pexels-photo-725990.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/725990/pexels-photo-725990.jpeg"
-      }
+      "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/725990/pexels-photo-725990.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/361184/asparagus-steak-veal-steak-veal-361184.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1795,21 +1507,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg"
-      }
+      "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1867,21 +1567,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg"
-      }
+      "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/2611810/pexels-photo-2611810.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/6169062/pexels-photo-6169062.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/5876685/pexels-photo-5876685.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -1939,21 +1627,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg"
-      },
-      {
-        url: "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg"
-      }
+      "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/164611/pexels-photo-164611.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/33783/olive-oil-salad-dressing-cooking-olive.jpg?auto=compress&cs=tinysrgb&w=300",
@@ -2011,21 +1687,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1172070/pexels-photo-1172070.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/1172070/pexels-photo-1172070.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/3658/food-dessert-cake-eggs.jpg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/3658/food-dessert-cake-eggs.jpg"
-      }
+      "https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1172070/pexels-photo-1172070.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/3658/food-dessert-cake-eggs.jpg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -2083,21 +1747,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/162670/juice-orange-drink-fresh-162670.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/162670/juice-orange-drink-fresh-162670.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg"
-      }
+      "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/162670/juice-orange-drink-fresh-162670.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=300",
@@ -2155,21 +1807,9 @@ const products = [
       qrCode: "https://cdn.dummyjson.com/public/qr-code.png",
     },
     images: [
-      {
-        url: "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_0",
-        original: "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_1",
-        original: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg"
-      },
-      {
-        url: "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg?auto=compress&cs=tinysrgb&w=500",
-        public_id: "product_1756193028423_2",
-        original: "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg"
-      }
+      "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://images.pexels.com/photos/1841888/pexels-photo-1841888.jpeg?auto=compress&cs=tinysrgb&w=500",
     ],
     thumbnail:
       "https://images.pexels.com/photos/209439/pexels-photo-209439.jpeg?auto=compress&cs=tinysrgb&w=300",

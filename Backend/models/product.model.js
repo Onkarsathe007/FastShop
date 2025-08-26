@@ -50,7 +50,13 @@ const productSchema = new Schema({
   returnPolicy: String,
   minimumOrderQuantity: Number,
   meta: metaSchema,
-  images: [String],
+  images: [
+    {
+      url: String,
+      public_id: String,
+      original: String,
+    },
+  ],
   thumbnail: String,
   owner: {
     type: Schema.Types.ObjectId,

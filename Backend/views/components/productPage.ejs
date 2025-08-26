@@ -18,12 +18,12 @@
                         <%for(var i=0;i<product.images.length;i++){%>
                             <div
                                 class="bg-white rounded-lg shadow-sm border p-2 cursor-pointer hover:shadow-md transition-shadow">
-                                <img src="<%=product.images[i]%>" alt="View <%=i%>"
+                                <img src="<%=product.images[i].url%>" alt="View <%=i%>"
                                     class="w-full h-16 object-contain rounded thumbnail-img"
                                     onclick="changeMainImage(this.src)">
                             </div>
-
                             <%}%>
+
                     </div>
                 </div>
             </div>
