@@ -6,8 +6,11 @@ const { isLoggedIn } = require("../middleware/auth.middlware.js");
 const { isOwner } = require("../middleware/auth.middlware.js");
 const { redirectUrl } = require("../middleware/auth.middlware.js");
 const { checkProductOwnership } = require("../middleware/auth.middlware.js");
-
 const productModel = require("../../models/product.model.js");
+const { storage } = require("../../config/cloudanary.config.js");
+const multer = require("multer");
+
+const upload = multer({ storage }); // ✅ now upload is defined
 
 //connecting to mongoDB.
 connectMongo();
@@ -16,40 +19,77 @@ router.get("/new", isLoggedIn, (req, res) => {
   res.render("./components/admin/new.ejs");
 });
 
-router.post("/new", async (req, res) => {
-  const {
-    images = [],
-    thumbnail,
-    title,
-    brand,
-    sku,
-    price,
-    discountPercentage,
-    stock,
-    category,
-    weight,
-    minimumOrderQuantity,
-    width,
-    height,
-    depth,
-    returnPolicy,
-    shippingInformation,
-    warrantyInformation,
-    description,
-  } = req.body;
+router.post("/new", upload.array("images", 5), async (req, res) => {
+  try {
+    const uploadedImages = req.files.map((file) => ({
+      url: file.path, // Cloudinary URL
+      public_id: file.filename, // Cloudinary ID
+      original: file.originalname,
+    }));
 
-  // You can store to DB here
-  const newProduct = new productModel({
-    ...req.body,
-    owner: req.user._id, // assign the owner
-  });
-  // Save the product
-  await newProduct.save();
-  console.log("Data Saved");
-  // Redirect or respond
-  res.send("Product received successfully!");
+    // Build product data
+    const newProduct = new productModel({
+      ...req.body,
+      images: uploadedImages, // ✅ store Cloudinary links instead of req.body.images
+      owner: req.user._id,
+    });
+
+    // Save product
+    await newProduct.save();
+
+    res.json({
+      message: "Product created successfully!",
+      product: newProduct,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Something went wrong" });
+  }
 });
 
+// router.post("/new", upload.array("images", 5), async (req, res) => {
+//   const {
+//     images = [],
+//     thumbnail,
+//     title,
+//     brand,
+//     sku,
+//     price,
+//     discountPercentage,
+//     stock,
+//     category,
+//     weight,
+//     minimumOrderQuantity,
+//     width,
+//     height,
+//     depth,
+//     returnPolicy,
+//     shippingInformation,
+//     warrantyInformation,
+//     description,
+//   } = req.body;
+//
+//   // You can store to DB here
+//   const newProduct = new productModel({
+//     ...req.body,
+//     owner: req.user._id, // assign the owner
+//   });
+//   // Save the product
+//   await newProduct.save();
+//
+//   res.json({
+//     message: "Files uploaded successfully!",
+//     files: req.files.map((file) => ({
+//       url: file.path, // Cloudinary URL
+//       public_id: file.filename, // Cloudinary ID
+//       original: file.originalname,
+//     })),
+//   });
+//   // console.log("Data Saved");
+//   // Redirect or respond
+//   res.send("Product received successfully!");
+// });
+//
 router.get("/:id", async (req, res) => {
   try {
     var { id } = req.params;
@@ -193,11 +233,19 @@ router.post("/:id/update", checkProductOwnership, async (req, res) => {
       thumbnail,
     } = req.body;
 
-    // Process images array - filter out empty strings
+    // Process images array - filter out empty strings and convert to object format
     const processedImages = Array.isArray(images)
-      ? images.filter((img) => img && img.trim() !== "")
+      ? images.filter((img) => img && img.trim() !== "").map((img, index) => ({
+          url: img,
+          public_id: `product_${id}_${index}`,
+          original: img
+        }))
       : images && images.trim() !== ""
-        ? [images]
+        ? [{
+            url: images,
+            public_id: `product_${id}_0`,
+            original: images
+          }]
         : [];
 
     const updateData = {
