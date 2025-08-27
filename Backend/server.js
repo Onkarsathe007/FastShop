@@ -1,6 +1,10 @@
 require("dotenv").config();
 const express = require("express");
+const ConnectMongo = require("./config/conn/db.js");
 const app = express();
+
+// Connect to database
+ConnectMongo();
 
 // Setup all middleware
 const setupMiddleware = require("./api/middleware/index.middleware.js");

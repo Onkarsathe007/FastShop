@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "../.env" });
 const mongoose = require("mongoose");
 const ConnectMongo = require("../config/conn/db.js");
 const Schema = mongoose.Schema;
@@ -5,14 +6,6 @@ const products = require("./data.js");
 
 //importing an model.
 const productModel = require("../models/product.model.js");
-
-ConnectMongo()
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((e) => {
-    console.log("Error:" + e + " occured!");
-  });
 
 const ownerId = "686bf803825cf6c5f8a942b3";
 
@@ -22,11 +15,16 @@ const product = products.map((product) => ({
   owner: ownerId,
 }));
 
-productModel
-  .insertMany(product)
+ConnectMongo()
+  .then(() => {
+    console.log("Connected to MongoDB");
+    return productModel.insertMany(product, { ordered: false });
+  })
   .then((res) => {
-    console.log("products saved");
+    console.log(`${res.length} products saved`);
+    process.exit(0);
   })
   .catch((e) => {
-    console.log("Error Occred");
+    console.log("Error occurred:", e);
+    process.exit(1);
   });
