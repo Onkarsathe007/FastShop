@@ -7,6 +7,18 @@ const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const passportLocal = require("passport-local");
+require("dotenv").config();
+
+//mongo session store
+var store = new MongoDBStore({
+  uri: process.env.MONGODB_URI,
+  collection: "sessions",
+});
+
+// Catch errors
+store.on("error", function (error) {
+  console.log(error);
+});
 
 module.exports = function setupMiddleware(app) {
   // Parse form and JSON data
@@ -31,8 +43,17 @@ module.exports = function setupMiddleware(app) {
   // Sessions, cookies, and flash messages
   app.use(cookieParser());
   app.use(
-    session({ secret: "secret code", resave: false, saveUninitialized: false }),
+    require("express-session")({
+      secret: "This is a secret",
+      cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      },
+      store: store,
+      resave: true,
+      saveUninitialized: true,
+    }),
   );
+
   app.use(flash());
 
   //passport | Authentication Setup
