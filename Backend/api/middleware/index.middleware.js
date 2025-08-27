@@ -44,7 +44,7 @@ module.exports = function setupMiddleware(app) {
   app.use(cookieParser());
   app.use(
     require("express-session")({
-      secret: "This is a secret",
+      secret: process.env.SECRET,
       cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
       },
