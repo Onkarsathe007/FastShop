@@ -10,14 +10,14 @@ A robust and scalable e-commerce backend API built with Node.js, Express.js, and
 
 ## ✨ Features
 
-- 🔐 **User Authentication** - Secure user registration and login with Passport.js
-- 📦 **Product Management** - CRUD operations for products with detailed schemas
-- 🖼️ **Image Upload** - Cloudinary integration for efficient image storage
-- ⭐ **Review System** - User reviews and ratings for products
-- 🛡️ **Security** - Built-in authentication middleware and session management
-- 🎨 **Template Engine** - EJS templates for server-side rendering
-- 📱 **RESTful API** - Clean and organized API endpoints
-- 🔍 **Data Validation** - Joi schema validation for request data
+- **User Authentication** - Secure user registration and login with Passport.js
+- **Product Management** - CRUD operations for products with detailed schemas
+- **Image Upload** - Cloudinary integration for efficient image storage
+- **Review System** - User reviews and ratings for products
+- **Security** - Built-in authentication middleware and session management
+- **Template Engine** - EJS templates for server-side rendering
+- **RESTful API** - Clean and organized API endpoints
+- **Data Validation** - Joi schema validation for request data
 
 ## 🚀 Tech Stack
 
@@ -241,18 +241,6 @@ We welcome contributions! Please follow these steps:
 - Follow the existing code style
 - Ensure all tests pass
 
-## 📄 License
-
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**FastShop Team**
-
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
-- 🐦 Twitter: [@yourusername](https://twitter.com/yourusername)
-
 ## 🙏 Acknowledgments
 
 - Express.js team for the amazing framework
@@ -260,15 +248,6 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 - Cloudinary for seamless image management
 - Passport.js for authentication solutions
 - All open source contributors
-
-## 📊 Project Stats
-
-![GitHub repo size](https://img.shields.io/github/repo-size/yourusername/fastshop-backend?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/fastshop-backend?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/fastshop-backend?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/fastshop-backend?style=for-the-badge)
-
----
 
 <div align="center">
   <p>⭐ Star this repository if you find it helpful!</p>
