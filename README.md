@@ -17,8 +17,8 @@ A robust and scalable e-commerce backend API built with Node.js, Express.js, and
 - **Security** - Built-in authentication middleware and session management
 - **Template Engine** - EJS templates for server-side rendering
 - **RESTful API** - Clean and organized API endpoints
-- **Data Validation** - Joi schema validation for request data
-
+-
+**Data Validation** - Joi schema validation for request data
 ## 🚀 Tech Stack
 
 | Technology | Purpose | Version |

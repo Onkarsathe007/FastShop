@@ -1,7 +1,7 @@
 const reviewSchema = require("./review");
 
 const schemas = {
-    reviewSchema: reviewSchema
+	reviewSchema: reviewSchema,
 };
 
 module.exports = schemas;

@@ -1,39 +1,43 @@
 {
-  "name": "E-Commerse",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
-    "start": "node server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.12.1",
-  "dependencies": {
-    "cloudinary": "^1.41.3",
-    "connect-flash": "^0.1.1",
-    "connect-mongodb-session": "^5.0.0",
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^16.6.0",
-    "ejs": "^3.1.10",
-    "ejs-mate": "^4.0.0",
-    "express": "^5.1.0",
-    "express-flash": "^0.0.2",
-    "express-session": "^1.18.1",
-    "joi": "^17.13.3",
-    "method-override": "^3.0.0",
-    "mongoose": "^8.18.0",
-    "multer": "^2.0.2",
-    "multer-storage-cloudinary": "^4.0.0",
-    "passport": "^0.7.0",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^8.0.0",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+	"name": "E-Commerse",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "node server.js",
+		"start": "node server.js",
+		"lint": "biome check .",
+		"lint:fix": "biome check . --write",
+		"format": "biome format ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.12.1",
+	"dependencies": {
+		"cloudinary": "^1.41.3",
+		"connect-flash": "^0.1.1",
+		"connect-mongodb-session": "^5.0.0",
+		"cookie-parser": "^1.4.7",
+		"dotenv": "^16.6.0",
+		"ejs": "^3.1.10",
+		"ejs-mate": "^4.0.0",
+		"express": "^5.1.0",
+		"express-flash": "^0.0.2",
+		"express-session": "^1.18.1",
+		"joi": "^17.13.3",
+		"method-override": "^3.0.0",
+		"mongoose": "^8.18.0",
+		"multer": "^2.0.2",
+		"multer-storage-cloudinary": "^4.0.0",
+		"passport": "^0.7.0",
+		"passport-local": "^1.0.0",
+		"passport-local-mongoose": "^8.0.0",
+		"path": "^0.12.7"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.4",
+		"nodemon": "^3.1.10"
+	}
 }

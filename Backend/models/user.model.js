@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-//Login stratergy 
+const _Schema = mongoose.Schema;
+//Login stratergy
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = mongoose.Schema({
-    email: String
+	email: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
