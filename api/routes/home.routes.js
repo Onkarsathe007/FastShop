@@ -6,12 +6,52 @@ const User = require("../../models/user.model.js");
 const passport = require("passport");
 const LocalPassport = require("passport-local");
 const { redirectUrl } = require("../middleware/auth.middlware.js");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 //Middleares at: ~/api/middlware/user.middlware.js
 passport.use(new LocalPassport(User.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+//GOOGLE statergy
+passport.use(
+	new GoogleStrategy(
+		{
+			clientID: process.env.GOGGLE_CLIENT_ID,
+			clientSecret: process.env.GOGGLE_CLIENT_SECRET,
+			callbackURL: "/auth/google/callback",
+		},
+		async (_accessToken, _refreshToken, profile, done) => {
+			try {
+				const existingUser = await User.findOne({ googleId: profile.id });
+				if (existingUser) {
+					return done(null, existingUser);
+				} else {
+					const newUser = new User({
+						googleId: profile.id,
+						username: profile.displayName || profile.emails[0].value,
+						email: profile.emails[0].value,
+					});
+					const user = await newUser.save();
+					return done(null, user);
+				}
+			} catch (error) {
+				return done(error, null);
+			}
+		},
+	),
+);
+
+passport.serializeUser((user, done) => {
+	done(null, user._id);
+});
+
+passport.deserializeUser(async (id, done) => {
+	try {
+		const user = await User.findById(id);
+		done(null, user);
+	} catch (err) {
+		done(err, null);
+	}
+});
 
 router.get("/", async (req, res) => {
 	var product;
@@ -20,6 +60,7 @@ router.get("/", async (req, res) => {
 		console.log(product);
 		res.locals.success = req.flash("success");
 		res.locals.error = req.flash("error");
+		console.log(req.user);
 		res.render("home.ejs", { product });
 	} catch (e) {
 		console.log(`Error:${e}·Occured`);
@@ -79,6 +120,31 @@ router.get("/logout", (req, res, next) => {
 	});
 	req.flash("success", "Logout Successfully");
 	res.redirect("/");
+});
+
+router.get(
+	"/auth/google",
+	passport.authenticate("google", {
+		scope: ["profile", "email"],
+	}),
+);
+
+router.get(
+	"/auth/google/callback",
+	passport.authenticate("google", {
+		successRedirect: "/",
+		failureRedirect: "/login",
+		failureFlash: true,
+	}),
+);
+
+router.get("/api/logout", (req, res) => {
+	req.logout();
+	res.send(req.user);
+});
+
+router.get("/api/current_user", (req, res) => {
+	res.send(req.user);
 });
 
 module.exports = router;
