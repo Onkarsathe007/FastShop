@@ -92,24 +92,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
              <%}else{ %>
 
-          
-                <button type="submit" onclick="window.location.href='/login'" class="w-24 h-10 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors shadow-sm font-medium flex items-center justify-center text-sm">
-                      Login
-                </button>
-               <%}%>
-                    <!-- Wishlist -->
-                    <a href="#" class="relative text-gray-700 hover:text-red-500 transition-colors">
-                        <i data-lucide="heart" class="w-6 h-6"></i>
-                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
-                    </a>
+                 <a href="#" class="relative text-gray-700 hover:text-blue-600 transition-colors mr-5">
+                     <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                     <span class="cart-badge absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                </a>
 
+
+                     <button type="submit" onclick="window.location.href='/login'" class="w-24 h-10 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors shadow-sm font-medium flex items-center justify-center text-sm">
+                     Login
+                     </button>
+                     <%}%>
+                    <!-- <!-- Wishlist --> 
+                    <!-- <a href="#" class="relative text-gray-700 hover:text-red-500 transition-colors"> -->
+                    <!--     <i data-lucide="heart" class="w-6 h-6"></i> -->
+                    <!--     <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span> -->
+                    <!-- </a> -->
+                    <!---->
                     <!-- Shopping Cart -->
-                    <a href="#" class="relative text-gray-700 hover:text-blue-600 transition-colors">
-                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                        <span class="cart-badge absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
-                    </a>
-
-                    <!-- Mobile Menu Button -->
+                             <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-blue-600 transition-colors">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
