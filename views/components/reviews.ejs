@@ -76,17 +76,16 @@
                             <form method="post" action="/products/<%=product._id%>/reviews/<%=product.reviews[i]._id%>?_method=PUT">
    
                             <fieldset class="starability-basic">
-                              <legend>First rating:</legend>
-                              <input type="radio" id="no-rate-edit-<%=i%>" class="input-no-rate" name="reviewCount" value="0" checked aria-label="No rating." />
-                              <input type="radio" id="edit-rate1-<%=i%>" name="reviewCount" value="1" />
+                              <legend>Rating:</legend>
+                              <input type="radio" id="edit-rate1-<%=i%>" name="reviewCount" value="1" <%= product.reviews[i].rating === 1 ? 'checked' : '' %> />
                               <label for="edit-rate1-<%=i%>" title="Terrible">1 star</label>
-                              <input type="radio" id="edit-rate2-<%=i%>" name="reviewCount" value="2" />
+                              <input type="radio" id="edit-rate2-<%=i%>" name="reviewCount" value="2" <%= product.reviews[i].rating === 2 ? 'checked' : '' %> />
                               <label for="edit-rate2-<%=i%>" title="Not good">2 stars</label>
-                              <input type="radio" id="edit-rate3-<%=i%>" name="reviewCount" value="3" />
+                              <input type="radio" id="edit-rate3-<%=i%>" name="reviewCount" value="3" <%= product.reviews[i].rating === 3 ? 'checked' : '' %> />
                               <label for="edit-rate3-<%=i%>" title="Average">3 stars</label>
-                              <input type="radio" id="edit-rate4-<%=i%>" name="reviewCount" value="4" />
+                              <input type="radio" id="edit-rate4-<%=i%>" name="reviewCount" value="4" <%= product.reviews[i].rating === 4 ? 'checked' : '' %> />
                               <label for="edit-rate4-<%=i%>" title="Very good">4 stars</label>
-                              <input type="radio" id="edit-rate5-<%=i%>" name="reviewCount" value="5" />
+                              <input type="radio" id="edit-rate5-<%=i%>" name="reviewCount" value="5" <%= product.reviews[i].rating === 5 ? 'checked' : '' %> />
                               <label for="edit-rate5-<%=i%>" title="Amazing">5 stars</label>
                             </fieldset>
                                 <!-- <div class="mb-4"> -->
@@ -124,14 +123,23 @@
             <%}%>
         </div>
         
-        <!-- Write Review Button -->
-        <div class="mt-6 pt-6 border-t">
+           
       <% if (currentUser && product && product.owner && currentUser._id.toString() !== product.owner._id.toString()) { %> 
             <button
                 class="bg-gray-100 text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
                 onclick="toggleReviewForm()" id="addReview">
                 Write a Review
             </button>
+      <% } else { %>
+            <div class="text-sm text-gray-500">
+                <% if (!currentUser) { %>
+                    Please <a href="/login" class="text-blue-500 hover:underline">log in</a> to write a review.
+                <% } else if (currentUser && product && product.owner && currentUser._id.toString() === product.owner._id.toString()) { %>
+                    You cannot review your own product.
+                <% } else { %>
+                    Unable to display review button.
+                <% } %>
+            </div>
       <%}%>
             <!-- Review Form (Initially Hidden) -->
             <div id="reviewForm" class="mt-6 p-4 bg-gray-50 rounded-lg hidden">
@@ -145,13 +153,12 @@
                     <!--         placeholder="e.g: 4" name="reviewCount" min="1" max="5" required> -->
                     <!-- </div> -->
                     <fieldset class="starability-basic">
-                              <legend>First rating:</legend>
-                              <input type="radio" id="no-rate-add" class="input-no-rate" name="reviewCount" value="0" checked aria-label="No rating." />
+                              <legend>Rating:</legend>
                               <input type="radio" id="add-rate1" name="reviewCount" value="1" />
                               <label for="add-rate1" title="Terrible">1 star</label>
                               <input type="radio" id="add-rate2" name="reviewCount" value="2" />
                               <label for="add-rate2" title="Not good">2 stars</label>
-                              <input type="radio" id="add-rate3" name="reviewCount" value="3" />
+                              <input type="radio" id="add-rate3" name="reviewCount" value="3" checked />
                               <label for="add-rate3" title="Average">3 stars</label>
                               <input type="radio" id="add-rate4" name="reviewCount" value="4" />
                               <label for="add-rate4" title="Very good">4 stars</label>

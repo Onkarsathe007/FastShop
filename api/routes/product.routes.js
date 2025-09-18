@@ -94,7 +94,10 @@ router.get("/:id", async (req, res) => {
 	var id;
 	try {
 		({ id } = req.params);
-		const product = await productModel.findOne({ _id: id });
+		const product = await productModel.findOne({ _id: id }).populate("owner");
+
+		// Debug logging
+		// console.log(currenUser);
 		res.locals.success = req.flash("success");
 		res.render("./product.ejs", { product });
 	} catch (e) {
@@ -108,8 +111,16 @@ router.post("/:id/reviews", isLoggedIn, async (req, res) => {
 		const { id } = req.params;
 		const { reviewCount, reviewerName, review } = req.body;
 
+		// Validate rating is between 1-5
+		const rating = parseInt(reviewCount, 10);
+		if (rating < 1 || rating > 5) {
+			console.log("Invalid rating:", rating);
+			req.flash("error", "Rating must be between 1 and 5 stars");
+			return res.redirect(`/products/${id}`);
+		}
+
 		const reviewData = {
-			rating: parseInt(reviewCount, 10),
+			rating: rating,
 			reviewerName: reviewerName,
 			comment: review,
 			date: new Date(),
@@ -117,9 +128,7 @@ router.post("/:id/reviews", isLoggedIn, async (req, res) => {
 			reviewerEmail: req.user.email,
 		};
 		const reviewSchema = schema.reviewSchema;
-
 		const { error } = reviewSchema.validate(reviewData);
-
 		if (error) {
 			console.log("Review validation error:", error.details);
 			return res.status(400).send("Invalid review data");
@@ -145,20 +154,31 @@ router.put("/:id/reviews/:reviewId", isLoggedIn, async (req, res) => {
 		const { id, reviewId } = req.params;
 		const { reviewCount, reviewerName, review } = req.body;
 
+		console.log("=== UPDATE REVIEW DEBUG ===");
+		console.log("Product ID:", id);
+		console.log("Review ID:", reviewId);
+		console.log("Request body:", req.body);
+		console.log("User:", req.user ? req.user._id : "null");
+
 		// Find the product first
 		const product = await productModel.findById(id);
 		if (!product) {
+			console.log("Product not found");
 			return res.status(404).send("Product not found");
 		}
 
 		// Find the specific review
 		const reviewToUpdate = product.reviews.id(reviewId);
 		if (!reviewToUpdate) {
+			console.log("Review not found");
 			return res.status(404).send("Review not found");
 		}
 
+		console.log("Found review to update:", reviewToUpdate);
+
 		// Check if current user is the review author
 		if (reviewToUpdate.reviewer.toString() !== req.user._id.toString()) {
+			console.log("User not authorized to update this review");
 			return res.status(403).send("You can only edit your own reviews");
 		}
 
@@ -171,6 +191,14 @@ router.put("/:id/reviews/:reviewId", isLoggedIn, async (req, res) => {
 			reviewerEmail: req.user.email,
 		};
 
+		// Validate rating is between 1-5
+		if (updatedReviewData.rating < 1 || updatedReviewData.rating > 5) {
+			console.log("Invalid rating:", updatedReviewData.rating);
+			req.flash("error", "Rating must be between 1 and 5 stars");
+			return res.redirect(`/products/${id}`);
+		}
+
+		const reviewSchema = schema.reviewSchema;
 		const { error } = reviewSchema.validate(updatedReviewData);
 
 		if (error) {
@@ -184,8 +212,16 @@ router.put("/:id/reviews/:reviewId", isLoggedIn, async (req, res) => {
 		reviewToUpdate.comment = updatedReviewData.comment;
 		reviewToUpdate.date = updatedReviewData.date;
 
+		console.log("Updated review data:", {
+			rating: reviewToUpdate.rating,
+			reviewerName: reviewToUpdate.reviewerName,
+			comment: reviewToUpdate.comment,
+		});
+
 		// Save the product
 		await product.save();
+		console.log("Review updated successfully");
+		console.log("===========================");
 
 		req.flash("success", "Review updated successfully");
 		res.redirect(`/products/${id}`);
