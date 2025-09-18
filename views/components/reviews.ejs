@@ -124,7 +124,7 @@
         </div>
         
            
-      <% if (currentUser && product && product.owner && currentUser._id.toString() !== product.owner._id.toString()) { %> 
+      <% if (currentUser) { %> 
             <button
                 class="bg-gray-100 text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-200 transition-colors"
                 onclick="toggleReviewForm()" id="addReview">
