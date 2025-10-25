@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: Fastshop
+    ports:
+      - "8080:8080"
+    volumes:
+      - app_data:/usr/src/app     # Named volume for persistent code/data
+      - /usr/src/app/node_modules # Prevent overwriting node_modules
+    networks:
+      - myapp_network
+    restart: always
+
+networks:
+  myapp_network:                 # Custom bridge network
+    driver: bridge
+
+volumes:
+  app_data:                       # Named volume

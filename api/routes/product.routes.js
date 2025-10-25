@@ -9,6 +9,7 @@ const { checkProductOwnership } = require("../middleware/auth.middlware.js");
 const productModel = require("../../models/product.model.js");
 const { storage } = require("../../config/cloudanary.config.js");
 const multer = require("multer");
+const cartModel = require("../../models/cart.model.js");
 
 const upload = multer({ storage }); // ✅ now upload is defined
 
@@ -16,35 +17,35 @@ const upload = multer({ storage }); // ✅ now upload is defined
 connectMongo();
 
 router.get("/new", isLoggedIn, (_req, res) => {
-	res.render("./components/admin/new.ejs");
+  res.render("./components/admin/new.ejs");
 });
 
 router.post("/new", upload.array("images", 5), async (req, res) => {
-	try {
-		const uploadedImages = req.files.map((file) => ({
-			url: file.path, // Cloudinary URL
-			public_id: file.filename, // Cloudinary ID
-			original: file.originalname,
-		}));
+  try {
+    const uploadedImages = req.files.map((file) => ({
+      url: file.path, // Cloudinary URL
+      public_id: file.filename, // Cloudinary ID
+      original: file.originalname,
+    }));
 
-		// Build product data
-		const newProduct = new productModel({
-			...req.body,
-			images: uploadedImages, // ✅ store Cloudinary links instead of req.body.images
-			owner: req.user._id,
-		});
+    // Build product data
+    const newProduct = new productModel({
+      ...req.body,
+      images: uploadedImages, // ✅ store Cloudinary links instead of req.body.images
+      owner: req.user._id,
+    });
 
-		// Save product
-		await newProduct.save();
+    // Save product
+    await newProduct.save();
 
-		res.json({
-			message: "Product created successfully!",
-			product: newProduct,
-		});
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({ error: "Something went wrong" });
-	}
+    res.json({
+      message: "Product created successfully!",
+      product: newProduct,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Something went wrong" });
+  }
 });
 
 // router.post("/new", upload.array("images", 5), async (req, res) => {
@@ -91,257 +92,296 @@ router.post("/new", upload.array("images", 5), async (req, res) => {
 // });
 //
 router.get("/:id", async (req, res) => {
-	var id;
-	try {
-		({ id } = req.params);
-		const product = await productModel.findOne({ _id: id }).populate("owner");
+  var id;
+  try {
+    ({ id } = req.params);
+    const product = await productModel.findOne({ _id: id }).populate("owner");
 
-		// Debug logging
-		// console.log(currenUser);
-		res.locals.success = req.flash("success");
-		res.render("./product.ejs", { product });
-	} catch (e) {
-		console.log(`Error:${e} Occurred`);
-		res.status(500).send("Error fetching product");
-	}
+    // Debug logging
+    // console.log(currenUser);
+    res.locals.success = req.flash("success");
+    res.render("./product.ejs", { product });
+  } catch (e) {
+    console.log(`Error:${e} Occurred`);
+    res.status(500).send("Error fetching product");
+  }
 });
 
 router.post("/:id/reviews", isLoggedIn, async (req, res) => {
-	try {
-		const { id } = req.params;
-		const { reviewCount, reviewerName, review } = req.body;
+  try {
+    const { id } = req.params;
+    const { reviewCount, reviewerName, review } = req.body;
 
-		// Validate rating is between 1-5
-		const rating = parseInt(reviewCount, 10);
-		if (rating < 1 || rating > 5) {
-			console.log("Invalid rating:", rating);
-			req.flash("error", "Rating must be between 1 and 5 stars");
-			return res.redirect(`/products/${id}`);
-		}
+    // Validate rating is between 1-5
+    const rating = parseInt(reviewCount, 10);
+    if (rating < 1 || rating > 5) {
+      console.log("Invalid rating:", rating);
+      req.flash("error", "Rating must be between 1 and 5 stars");
+      return res.redirect(`/products/${id}`);
+    }
 
-		const reviewData = {
-			rating: rating,
-			reviewerName: reviewerName,
-			comment: review,
-			date: new Date(),
-			reviewer: req.user._id.toString(),
-			reviewerEmail: req.user.email,
-		};
-		const reviewSchema = schema.reviewSchema;
-		const { error } = reviewSchema.validate(reviewData);
-		if (error) {
-			console.log("Review validation error:", error.details);
-			return res.status(400).send("Invalid review data");
-		}
+    const reviewData = {
+      rating: rating,
+      reviewerName: reviewerName,
+      comment: review,
+      date: new Date(),
+      reviewer: req.user._id.toString(),
+      reviewerEmail: req.user.email,
+    };
+    const reviewSchema = schema.reviewSchema;
+    const { error } = reviewSchema.validate(reviewData);
+    if (error) {
+      console.log("Review validation error:", error.details);
+      return res.status(400).send("Invalid review data");
+    }
 
-		// Find product and add review to reviews array
-		await productModel.findByIdAndUpdate(
-			{ _id: id },
-			{ $push: { reviews: reviewData } },
-		);
-		// Redirect back to product page
-		req.flash("success", "Review added successfully");
-		res.redirect(`/products/${id}`);
-	} catch (error) {
-		console.log("Error adding review:", error);
-		res.status(500).send("Error adding review");
-	}
+    // Find product and add review to reviews array
+    await productModel.findByIdAndUpdate(
+      { _id: id },
+      { $push: { reviews: reviewData } },
+    );
+    // Redirect back to product page
+    req.flash("success", "Review added successfully");
+    res.redirect(`/products/${id}`);
+  } catch (error) {
+    console.log("Error adding review:", error);
+    res.status(500).send("Error adding review");
+  }
 });
 
 // Update a specific review
 router.put("/:id/reviews/:reviewId", isLoggedIn, async (req, res) => {
-	try {
-		const { id, reviewId } = req.params;
-		const { reviewCount, reviewerName, review } = req.body;
+  try {
+    const { id, reviewId } = req.params;
+    const { reviewCount, reviewerName, review } = req.body;
 
-		console.log("=== UPDATE REVIEW DEBUG ===");
-		console.log("Product ID:", id);
-		console.log("Review ID:", reviewId);
-		console.log("Request body:", req.body);
-		console.log("User:", req.user ? req.user._id : "null");
+    console.log("=== UPDATE REVIEW DEBUG ===");
+    console.log("Product ID:", id);
+    console.log("Review ID:", reviewId);
+    console.log("Request body:", req.body);
+    console.log("User:", req.user ? req.user._id : "null");
 
-		// Find the product first
-		const product = await productModel.findById(id);
-		if (!product) {
-			console.log("Product not found");
-			return res.status(404).send("Product not found");
-		}
+    // Find the product first
+    const product = await productModel.findById(id);
+    if (!product) {
+      console.log("Product not found");
+      return res.status(404).send("Product not found");
+    }
 
-		// Find the specific review
-		const reviewToUpdate = product.reviews.id(reviewId);
-		if (!reviewToUpdate) {
-			console.log("Review not found");
-			return res.status(404).send("Review not found");
-		}
+    // Find the specific review
+    const reviewToUpdate = product.reviews.id(reviewId);
+    if (!reviewToUpdate) {
+      console.log("Review not found");
+      return res.status(404).send("Review not found");
+    }
 
-		console.log("Found review to update:", reviewToUpdate);
+    console.log("Found review to update:", reviewToUpdate);
 
-		// Check if current user is the review author
-		if (reviewToUpdate.reviewer.toString() !== req.user._id.toString()) {
-			console.log("User not authorized to update this review");
-			return res.status(403).send("You can only edit your own reviews");
-		}
+    // Check if current user is the review author
+    if (reviewToUpdate.reviewer.toString() !== req.user._id.toString()) {
+      console.log("User not authorized to update this review");
+      return res.status(403).send("You can only edit your own reviews");
+    }
 
-		const updatedReviewData = {
-			rating: parseInt(reviewCount, 10),
-			reviewerName: reviewerName,
-			comment: review,
-			date: new Date(),
-			reviewer: req.user._id.toString(),
-			reviewerEmail: req.user.email,
-		};
+    const updatedReviewData = {
+      rating: parseInt(reviewCount, 10),
+      reviewerName: reviewerName,
+      comment: review,
+      date: new Date(),
+      reviewer: req.user._id.toString(),
+      reviewerEmail: req.user.email,
+    };
 
-		// Validate rating is between 1-5
-		if (updatedReviewData.rating < 1 || updatedReviewData.rating > 5) {
-			console.log("Invalid rating:", updatedReviewData.rating);
-			req.flash("error", "Rating must be between 1 and 5 stars");
-			return res.redirect(`/products/${id}`);
-		}
+    // Validate rating is between 1-5
+    if (updatedReviewData.rating < 1 || updatedReviewData.rating > 5) {
+      console.log("Invalid rating:", updatedReviewData.rating);
+      req.flash("error", "Rating must be between 1 and 5 stars");
+      return res.redirect(`/products/${id}`);
+    }
 
-		const reviewSchema = schema.reviewSchema;
-		const { error } = reviewSchema.validate(updatedReviewData);
+    const reviewSchema = schema.reviewSchema;
+    const { error } = reviewSchema.validate(updatedReviewData);
 
-		if (error) {
-			console.log("Review validation error:", error.details);
-			return res.status(400).send("Invalid review data");
-		}
+    if (error) {
+      console.log("Review validation error:", error.details);
+      return res.status(400).send("Invalid review data");
+    }
 
-		// Update the review
-		reviewToUpdate.rating = updatedReviewData.rating;
-		reviewToUpdate.reviewerName = updatedReviewData.reviewerName;
-		reviewToUpdate.comment = updatedReviewData.comment;
-		reviewToUpdate.date = updatedReviewData.date;
+    // Update the review
+    reviewToUpdate.rating = updatedReviewData.rating;
+    reviewToUpdate.reviewerName = updatedReviewData.reviewerName;
+    reviewToUpdate.comment = updatedReviewData.comment;
+    reviewToUpdate.date = updatedReviewData.date;
 
-		console.log("Updated review data:", {
-			rating: reviewToUpdate.rating,
-			reviewerName: reviewToUpdate.reviewerName,
-			comment: reviewToUpdate.comment,
-		});
+    console.log("Updated review data:", {
+      rating: reviewToUpdate.rating,
+      reviewerName: reviewToUpdate.reviewerName,
+      comment: reviewToUpdate.comment,
+    });
 
-		// Save the product
-		await product.save();
-		console.log("Review updated successfully");
-		console.log("===========================");
+    // Save the product
+    await product.save();
+    console.log("Review updated successfully");
+    console.log("===========================");
 
-		req.flash("success", "Review updated successfully");
-		res.redirect(`/products/${id}`);
-	} catch (error) {
-		console.log("Error updating review:", error);
-		res.status(500).send("Error updating review");
-	}
+    req.flash("success", "Review updated successfully");
+    res.redirect(`/products/${id}`);
+  } catch (error) {
+    console.log("Error updating review:", error);
+    res.status(500).send("Error updating review");
+  }
 });
 
 router.get("/:id/update", isOwner, isLoggedIn, async (req, res) => {
-	var id;
-	try {
-		({ id } = req.params);
-		const product = await productModel.findOne({ _id: id });
-		if (!product) {
-			return res.status(404).send("Product not found");
-		}
-		res.render("components/admin/update.ejs", { product });
-	} catch (e) {
-		console.log(`Error:${e} Occurred`);
-		res.status(500).send("Error fetching product");
-	}
+  var id;
+  try {
+    ({ id } = req.params);
+    const product = await productModel.findOne({ _id: id });
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+    res.render("components/admin/update.ejs", { product });
+  } catch (e) {
+    console.log(`Error:${e} Occurred`);
+    res.status(500).send("Error fetching product");
+  }
 });
 
 router.post(
-	"/:id/update",
-	upload.array("images", 5),
-	checkProductOwnership,
-	async (req, res) => {
-		var id;
-		try {
-			({ id } = req.params);
-			const {
-				title,
-				brand,
-				sku,
-				price,
-				discountPercentage,
-				stock,
-				category,
-				weight,
-				minimumOrderQuantity,
-				width,
-				height,
-				depth,
-				returnPolicy,
-				shippingInformation,
-				warrantyInformation,
-				description,
-				thumbnail,
-			} = req.body;
+  "/:id/update",
+  upload.array("images", 5),
+  checkProductOwnership,
+  async (req, res) => {
+    var id;
+    try {
+      ({ id } = req.params);
+      const {
+        title,
+        brand,
+        sku,
+        price,
+        discountPercentage,
+        stock,
+        category,
+        weight,
+        minimumOrderQuantity,
+        width,
+        height,
+        depth,
+        returnPolicy,
+        shippingInformation,
+        warrantyInformation,
+        description,
+        thumbnail,
+      } = req.body;
 
-			const uploadedImages = req.files.map((file) => ({
-				url: file.path, // Cloudinary URL
-				public_id: file.filename, // Cloudinary ID
-				original: file.originalname,
-			}));
+      const uploadedImages = req.files.map((file) => ({
+        url: file.path, // Cloudinary URL
+        public_id: file.filename, // Cloudinary ID
+        original: file.originalname,
+      }));
 
-			// Process images array - filter out empty strings and convert to object format
-			const updateData = {
-				title,
-				brand,
-				sku,
-				price: parseFloat(price),
-				discountPercentage: parseFloat(discountPercentage),
-				stock: parseInt(stock, 10),
-				category,
-				weight: parseFloat(weight),
-				minimumOrderQuantity: parseInt(minimumOrderQuantity, 10),
-				dimensions: {
-					width: parseFloat(width) || 0,
-					height: parseFloat(height) || 0,
-					depth: parseFloat(depth) || 0,
-				},
-				returnPolicy,
-				shippingInformation,
-				warrantyInformation,
-				description,
-				images: uploadedImages,
-				thumbnail: thumbnail && thumbnail.trim() !== "" ? thumbnail : undefined,
-			};
-			const updatedProduct = await productModel.findOneAndUpdate(
-				{ _id: id },
-				updateData,
-				{ new: true },
-			);
+      // Process images array - filter out empty strings and convert to object format
+      const updateData = {
+        title,
+        brand,
+        sku,
+        price: parseFloat(price),
+        discountPercentage: parseFloat(discountPercentage),
+        stock: parseInt(stock, 10),
+        category,
+        weight: parseFloat(weight),
+        minimumOrderQuantity: parseInt(minimumOrderQuantity, 10),
+        dimensions: {
+          width: parseFloat(width) || 0,
+          height: parseFloat(height) || 0,
+          depth: parseFloat(depth) || 0,
+        },
+        returnPolicy,
+        shippingInformation,
+        warrantyInformation,
+        description,
+        images: uploadedImages,
+        thumbnail: thumbnail && thumbnail.trim() !== "" ? thumbnail : undefined,
+      };
+      const updatedProduct = await productModel.findOneAndUpdate(
+        { _id: id },
+        updateData,
+        { new: true },
+      );
 
-			if (!updatedProduct) {
-				return res.status(404).send("Product not found");
-			}
-			console.log("fuck you this time");
-			req.flash("success", "Product Updated Successfully");
-			res.redirect(`/products/${id}`);
-		} catch (e) {
-			console.log(`Error updating product:${e}`);
-			res.status(500).send("Error updating product");
-		}
-	},
+      if (!updatedProduct) {
+        return res.status(404).send("Product not found");
+      }
+      console.log("fuck you this time");
+      req.flash("success", "Product Updated Successfully");
+      res.redirect(`/products/${id}`);
+    } catch (e) {
+      console.log(`Error updating product:${e}`);
+      res.status(500).send("Error updating product");
+    }
+  },
 );
 
 router.delete("/:id", isOwner, async (req, res) => {
-	console.log("DELETE route hit with ID:", req.params.id);
-	console.log("Request method:", req.method);
-	try {
-		const { id } = req.params;
-		console.log(id);
-		console.log("Attempting to delete product with ID:", id);
-		const deletedProduct = await productModel.findOneAndDelete({ _id: id });
+  console.log("DELETE route hit with ID:", req.params.id);
+  console.log("Request method:", req.method);
+  try {
+    const { id } = req.params;
+    console.log(id);
+    console.log("Attempting to delete product with ID:", id);
+    const deletedProduct = await productModel.findOneAndDelete({ _id: id });
 
-		if (!deletedProduct) {
-			console.log("Product not found with ID:", id);
-			res.redirect("/");
-		}
+    if (!deletedProduct) {
+      console.log("Product not found with ID:", id);
+      res.redirect("/");
+    }
 
-		req.flash("success", "Product deleted successfully");
-		res.redirect("/");
-	} catch (e) {
-		console.log(`Error deleting product:${e}`);
-		res.status(500).send("Error deleting product");
-	}
+    req.flash("success", "Product deleted successfully");
+    res.redirect("/");
+  } catch (e) {
+    console.log(`Error deleting product:${e}`);
+    res.status(500).send("Error deleting product");
+  }
 });
 
+//                 _                    _             _       _
+//   ___ __ _ _ __| |_    ___ _ __   __| |_ __   ___ (_)_ __ | |_ ___
+//  / __/ _` | '__| __|  / _ \ '_ \ / _` | '_ \ / _ \| | '_ \| __/ __|
+// | (_| (_| | |  | |_  |  __/ | | | (_| | |_) | (_) | | | | | |_\__ \
+//  \___\__,_|_|   \__|  \___|_| |_|\__,_| .__/ \___/|_|_| |_|\__|___/
+
+router.post("/cart/:id/add", async (req, res) => {
+  const { id } = req.params; // cart id
+  const { quantity } = req.body; // product details
+  console.log(quantity);
+  console.log(id);
+  const result = await productModel.findOne({ _id: id });
+  //cart object
+  const cart = {
+    title: result.title,
+    price: result.price,
+    quantity: quantity,
+    images: [
+      {
+        url: result.images[0].url,
+        public_id: result.images[0].public_id,
+        original: result.images[0].original,
+      },
+    ],
+    owner: result.owner,
+  };
+
+  cartModel
+    .create(cart)
+    .then((savedCart) => {
+      res.json({ success: true, data: savedCart });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ success: false, message: "Server error" });
+    });
+
+  // res.json(cart);
+});
 module.exports = router;
