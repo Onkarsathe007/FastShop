@@ -251,5 +251,5 @@ We welcome contributions! Please follow these steps:
 
 <div align="center">
   <p>⭐ Star this repository if you find it helpful!</p>
-  <p>Made with ❤️ by the FastShop Team</p>
+  <p>Made with ❤️ by the Onkar sathe</p>
 </div>
