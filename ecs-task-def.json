@@ -7,7 +7,7 @@
   "executionRoleArn": "arn:aws:iam::318651457153:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "fastshop",
+      "name": "fastfshopp",
       "image": "318651457153.dkr.ecr.ap-south-1.amazonaws.com/fastshoop:latest",
       "essential": true,
       "portMappings": [
