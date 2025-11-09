@@ -1,4 +1,4 @@
-Game: Deploy to AWS Fargate
+name: Deploy to AWS Fargate
 
 on:
   push:
