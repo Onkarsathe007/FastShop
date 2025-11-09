@@ -11,6 +11,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 //Middleares at: ~/api/middlware/user.middlware.js
 passport.use(new LocalPassport(User.authenticate()));
 
+console.log("Home routes loaded");
+
 //GOOGLE statergy
 passport.use(
 	new GoogleStrategy(
