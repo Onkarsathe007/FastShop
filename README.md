@@ -9,7 +9,6 @@
 A robust and scalable e-commerce backend API built with Node.js, Express.js, and MongoDB. FastShop provides a complete backend solution for modern e-commerce applications with user authentication, product management, file uploads, and more.
 
 ## ✨ Features
-
 - **User Authentication** - Secure user registration and login with Passport.js
 - **Product Management** - CRUD operations for products with detailed schemas
 - **Image Upload** - Cloudinary integration for efficient image storage
